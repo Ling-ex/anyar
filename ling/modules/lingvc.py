@@ -18,9 +18,9 @@ from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.tools import get_arg
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.tools import get_arg
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
