@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, String, UnicodeText
 
-from HyperPyro.helpers.SQL import BASE, SESSION
+from hyperlibs.ling.helpers.SQL import BASE, SESSION
 
 Owner = 0
 
