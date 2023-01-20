@@ -11,8 +11,8 @@ import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
 from config import IG_ALIVE, CH_SFS
 from .help import add_command_help
@@ -24,7 +24,7 @@ async def salamone(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "Assalamualaikum Anak Anjing!",
+            "Assalamualaikum Anak Goblok!",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -98,14 +98,14 @@ async def ngegas(client: Client, message: Message):
 async def igehh(client: Client, message: Message):
     xx = await edit_or_reply(message, "**Mutualan IG Yuk!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih IG Ku = [TEKAN](https://instagram.com/{IG_ALIVE})")
+    await xx.edit(f"nih IG ku = [TEKAN](https://instagram.com/{IG_ALIVE})")
 
 
 @Client.on_message(filters.command("sfs", cmd) & filters.me)
 async def channel(client: Client, message: Message):
     xx = await edit_or_reply(message, "**Yok SFS!!**")
     await asyncio.sleep(2)
-    await xx.edit(f"Nih CH Ku = [TEKAN](https://t.me/{CH_SFS})")
+    await xx.edit(f"nih CH ku = [TEKAN](https://t.me/{CH_SFS})")
 
 
 @Client.on_message(filters.command("keluar", cmd) & filters.me)
