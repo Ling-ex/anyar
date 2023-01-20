@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from HyperPyro import DB_URL, LOGGER
+from ling import DB_URL, LOGGER
 
 SPAMBOT = "SPAMBOT"
 
