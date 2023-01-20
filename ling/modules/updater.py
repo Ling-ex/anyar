@@ -22,13 +22,13 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.misc import HAPP, XCB
-from geezlibs.ram.helpers.tools import get_arg
-from geezlibs.ram.utils.misc import restart
-from geezlibs.ram.utils.pastebin import PasteBin
-from geezlibs.ram.utils.tools import bash
+from hyperlibs.ram.helpers.adminHelpers import DEVS
+from hyperlibs.ram.helpers.basic import edit_or_reply
+from hyperlibs.ram.helpers.misc import HAPP, XCB
+from hyperlibs.ram.helpers.tools import get_arg
+from hyperlibs.ram.utils.misc import restart
+from hyperlibs.ram.utils.pastebin import PasteBin
+from hyperlibs.ram.utils.tools import bash
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
@@ -66,7 +66,7 @@ async def updateme_requirements():
     reqs = str(requirements_path)
     try:
         process = await asyncio.create_subprocess_shell(
-            " ".join([sys.executable, "-m", "pip", "install", "-r", reqs]),
+            " ".join([sys.executable, "-m", "pip", "install", "-r", ling]),
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -79,9 +79,9 @@ async def updateme_requirements():
 @Client.on_message(
     filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("apdet", cmd) & filters.me)
+@Client.on_message(filters.command("update", cmd) & filters.me)
 async def upstream(client: Client, message: Message):
-    status = await edit_or_reply(message, "`Gua Cek dulu brok, Sabar...`")
+    status = await edit_or_reply(message, "`Gua Cek dulu bg, Sabar...`")
     conf = get_arg(message)
     off_repo = UPSTREAM_REPO_URL
     try:
@@ -135,13 +135,13 @@ async def upstream(client: Client, message: Message):
                 await client.send_document(
                     message.chat.id,
                     "output.txt",
-                    caption=f"**Ketik** `{cmd}apdet dulu` **Untuk Mengupdate Userbot.**",
+                    caption=f"**Ketik** `{cmd}update dulu` **Untuk Mengupdate Userbot.**",
                     reply_to_message_id=status.id,
                 )
                 remove("output.txt")
             else:
                 return await status.edit(
-                    f"{changelog_str}\n**Ketik** `{cmd}apdet dulu` **Untuk Mengupdate Userbot.**",
+                    f"{changelog_str}\n**Ketik** `{cmd}update dulu` **Untuk Mengupdate Userbot.**",
                     disable_web_page_preview=True,
                 )
         else:
@@ -174,7 +174,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Update Deploy RamPyro-Bot Sedang Dalam Proses...`"
+            "`[HEROKU]: Update Deploy Hyper-Bot Sedang Dalam Proses...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -191,7 +191,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`RamPyro-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
+            "`Hyper-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
         )
     else:
         try:
@@ -200,9 +200,9 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "`RamPyro-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
+            "`Hyper-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "geezlibs.ram"]
+        args = [sys.executable, "-m", "hyperlibs.ling"]
         execle(sys.executable, *args, environ)
         return
 
@@ -269,7 +269,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
-        ["apdet dulu", "Untuk mengupdate userbot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
+        ["update dulu", "Untuk mengupdate userbot."],
     ],
 )
