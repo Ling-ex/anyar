@@ -10,10 +10,10 @@ import asyncio
 from prettytable import PrettyTable
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.utility import split_list
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.utility import split_list
 from config import CMD_HANDLER as cmd
-from rams import CMD_HELP,app
+from ling import CMD_HELP,app
 
 def ReplyCheck(message: Message):
     reply_id = None
@@ -46,13 +46,13 @@ async def module_help(client: Client, message: Message):
             print(f"{e}")
             ac = PrettyTable()
             ac.header = False
-            ac.title = "Ram Pyro Plugins"
+            ac.title = "Hyper Robot Plugins"
             ac.align = "l"
             for x in split_list(sorted(CMD_HELP.keys()), 2):
                 ac.add_row([x[0], x[1] if len(x) >= 2 else None])
             xx = await client.send_message(
                 message.chat.id,
-                f"```{str(ac)}```\n• @GeezRam >< @UserbotCh •",
+                f"```{str(ac)}```\n• @HyperSupportQ >< @storyQi •",
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
@@ -66,7 +66,7 @@ async def module_help(client: Client, message: Message):
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `{CMD_HANDLER}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @UserbotCh"
+            this_command += "© @HyperSupportQ"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
@@ -87,12 +87,12 @@ async def module_helper(client: Client, message: Message):
     elif not message.reply_to_message and len(cmd) == 1:
         ac = PrettyTable()
         ac.header = False
-        ac.title = "Ram Pyro Plugins"
+        ac.title = "Hyper Robot Plugins"
         ac.align = "l"
         for x in split_list(sorted(CMD_HELP.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
         await edit_or_reply(
-            message, f"```{str(ac)}```\n• @GeezRam >< @UserbotCh •"
+            message, f"```{str(ac)}```\n• @HyperSupportQ >< @storyQi •"
         )
         await message.reply(
             f"**Usage**:`{cmd}help broadcast` **To View Module details**"
@@ -104,7 +104,7 @@ async def module_helper(client: Client, message: Message):
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-            this_command += "© @GeezRam >< @UserbotCh"
+            this_command += "© @HyperSupportQ >< @storyQi"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
             )
