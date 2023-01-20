@@ -17,15 +17,15 @@ from pyrogram.types import Message
 from pyrogram.enums import ParseMode
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.constants import WWW
-from geezlibs.ram.helpers.PyroHelpers import SpeedConvert
-from geezlibs.ram.utils.tools import get_readable_time
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.constants import WWW
+from hyperlibs.ling.helpers.PyroHelpers import SpeedConvert
+from hyperlibs.ling.utils.tools import get_readable_time
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
-from rams import CMD_HELP, StartTime
+from ling import CMD_HELP, StartTime
 from .help import add_command_help
 
 modules = CMD_HELP
@@ -102,7 +102,7 @@ async def pingme(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ram.edit(
-        f"**🌟𝗥𝗮𝗺𝗣𝘆𝗿𝗼-𝗕𝗼𝘁🌟**\n"
+        f"**ʜʏᴘᴇʀ-ᴜʙᴏᴛ⌛**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ➠  Uᴘᴛɪᴍᴇ  :** "
@@ -121,12 +121,12 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"**╰•★★ |Pyro-Ping| ★★•╯**\n"
-        f"★ **speed:** "
+        f"**Hʏᴘᴇʀ-Uʙᴏᴛ**\n"
+        f"**Pɪɴɢ:** "
         f"`%sms` \n"
-        f"★ **Uptime:** "
+        f"**Uᴘᴛɪᴍᴇ:** "
         f"`{uptime}` \n"
-        f"★ **owner:** {client.me.mention}" % (duration)
+        f"**Oᴡɴᴇʀ:** {client.me.mention}" % (duration)
     )
 
 
@@ -137,8 +137,8 @@ async def ramping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        text="RamPyro-bot\n"
-        "ㅤㅤStatus : Menyala!\n"
+        text="\n"
+        "ㅤㅤStatus : Hʏᴘᴇʀ-Uʙᴏᴛ Menyala!\n"
         f"ㅤㅤㅤㅤping bot:"
         f"`%sms` \n"
         f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
