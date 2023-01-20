@@ -3,7 +3,7 @@
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import get_text
+from hyperlibs.ling.helpers.basic import get_text
 from config import CMD_HANDLER as cmd
 
 from .help import *
