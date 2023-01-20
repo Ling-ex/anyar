@@ -17,16 +17,16 @@ from pyrogram import __version__ as versipyro
 from pyrogram import filters
 from pyrogram.types import Message
 from telegraph import exceptions, upload_file
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
-from geezlibs.ram.helpers.SQL.globals import gvarstatus
-from geezlibs.ram.helpers.tools import convert_to_image
-from geezlibs.ram.utils import get_readable_time
-from geezlibs.ram.utils.misc import restart
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.SQL.globals import gvarstatus
+from hyperlibs.ling.helpers.tools import convert_to_image
+from hyperlibs.ling.utils import get_readable_time
+from hyperlibs.ling.utils.misc import restart
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
 from config import GROUP
-from rams import CMD_HELP, StartTime
+from ling import CMD_HELP, StartTime
 
 
 from .help import add_command_help
@@ -46,14 +46,14 @@ async def alive(client: Client, message: Message):
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**꧁༺[RamPyro-Bot](https://github.com/ramadhani892/RamPyro-Bot)༻꧂**\n\n"
-        f"━───────╯•╰───────━\n"
+        f"**꧁༺[Hʏᴘᴇʀ-Uʙᴏᴛ](https://github.com/Ling-ex/Ling-Ubot)༻꧂**\n\n"
+        f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
         f"{emoji} <b>ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
-        f"━───────╮•╭───────━\n"
-        f"➠ 𝙼𝚈 𝙼𝙰𝚂𝚃𝙴𝚁 : [❝𝐂𝐥𝐢𝐜𝐤❞ ](tg://user?id={client.me.id}) \n\n"
-        f"    **[𝚂𝚞𝚙𝚙𝚘𝚛𝚝](https://t.me/{GROUP})** | **[𝙲𝚑𝚊𝚗𝚗𝚎𝚕](https://t.me/{CHANNEL})** | **[𝙾𝚠𝚗𝚎𝚛](t.me/thisrama)**"
+        f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
+        f"➠ Mʏ Mᴀꜱᴛᴇʀ : [ᴋʟɪᴋ](tg://user?id={client.me.id}) \n\n"
+        f"    **[Sᴜᴘᴘᴏʀᴛ](https://t.me/{GROUP})** | **[Cʜᴀɴɴᴇʟ](https://t.me/{CHANNEL})** | **[Oᴡɴᴇʀ](t.me/excute7)**"
     )
     try:
         await asyncio.gather(
@@ -72,7 +72,7 @@ async def alive(client: Client, message: Message):
 @Client.on_message(filters.command("setalivelogo", cmd) & filters.me)
 async def setalivelogo(client: Client, message: Message):
     try:
-        import rams.helpers.SQL.globals as sql
+        import ling.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
@@ -109,7 +109,7 @@ async def setalivelogo(client: Client, message: Message):
 @Client.on_message(filters.command("setalivetext", cmd) & filters.me)
 async def setalivetext(client: Client, message: Message):
     try:
-        import rams.helpers.SQL.globals as sql
+        import ling.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
@@ -136,7 +136,7 @@ async def setalivetext(client: Client, message: Message):
 @Client.on_message(filters.command("setemoji", cmd) & filters.me)
 async def setemoji(client: Client, message: Message):
     try:
-        import rams.helpers.SQL.globals as sql
+        import ling.helpers.SQL.globals as sql
     except AttributeError:
         await message.edit("**Running on Non-SQL mode!**")
         return
