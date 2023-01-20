@@ -8,7 +8,7 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 
-from rams import ids as list_users
+from ling import ids as list_users
 
 looters = None
 
@@ -38,10 +38,10 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 InlineKeyboardButton(
-                    text="⇚", callback_data=f"{prefix}_prev({modulo_page})"
+                    text="«", callback_data=f"{prefix}_prev({modulo_page})"
                 ),
                 InlineKeyboardButton(
-                    text="⇛", callback_data=f"{prefix}_next({modulo_page})"
+                    text="»", callback_data=f"{prefix}_next({modulo_page})"
                 ),
             )
         ]
@@ -53,7 +53,7 @@ def cb_wrapper(func):
         users = list_users
         if cb.from_user.id not in users:
             await cb.answer(
-                "Lah? Bawel!!",
+                "Apa? Buat Sendiri lah",
                 cache_time=0,
                 show_alert=True,
             )
@@ -61,7 +61,7 @@ def cb_wrapper(func):
             try:
                 await func(client, cb)
             except MessageNotModified:
-                await cb.answer("🤔🧐")
+                await cb.answer("🤔🤨")
             except Exception:
                 print(format_exc())
                 await cb.answer(
