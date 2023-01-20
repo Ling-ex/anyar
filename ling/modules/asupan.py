@@ -6,18 +6,18 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as ram
 from pyrogram import Client, enums, filters
-from geezlibs.ram.helpers.basic import *
-from geezlibs.ram.helpers.PyroHelpers import *
-from rams import *
+from hyperlibs.ling.helpers.basic import *
+from hyperlibs.ling.helpers.PyroHelpers import *
+from ling import *
 from .help import add_command_help
 
-@ram.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
+@ling.on_message(filters.command(["asupan", "ptl"], cmd) & filters.me)
 async def asupan(client: Client, message: Message):
     if message.chat.id == -1001554560763:
         return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
-    ram = await edit_or_reply(message, "`Wait a moment...`")
+    ling = await edit_or_reply(message, "`Wait a moment...`")
     await gather(
-        ram.delete(),
+        ling.delete(),
         client.send_video(
             message.chat.id,
             choice(
@@ -34,7 +34,7 @@ async def asupan(client: Client, message: Message):
 
 # WARNING PORNO VIDEO THIS !!!
 
-@ram.on_message(filters.command(["bokep", "bkp"], cmd) & filters.me)
+@ling.on_message(filters.command(["bokep", "bkp"], cmd) & filters.me)
 async def bokep(client: Client, message: Message):
     if message.chat.id == -1001664137877:
         return await edit_or_reply(message, "**This command is prohibited from being used in this group**")
@@ -57,7 +57,7 @@ async def bokep(client: Client, message: Message):
     )
 
 
-@ram.on_message(filters.command(["ayang", "ayg"], cmd) & filters.me)
+@ling.on_message(filters.command(["ayang", "ayg"], cmd) & filters.me)
 async def ayang(client, message):
     yanto = await message.reply("🔎 `Search Ayang...`")
     pop = message.from_user.first_name
@@ -78,7 +78,7 @@ async def ayang(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppcp", "cpp"], cmd) & filters.me)
+@ling.on_message(filters.command(["ppcp", "cpp"], cmd) & filters.me)
 async def ppcp(client, message):
     yanto = await message.reply("🔎 `Search PP Couple...`")
     message.from_user.first_name
@@ -99,7 +99,7 @@ async def ppcp(client, message):
     await yanto.delete()
 
 
-@ram.on_message(filters.command(["ppanime", "anim"], cmd) & filters.me)
+@ling.on_message(filters.command(["ppanime", "anim"], cmd) & filters.me)
 async def ppanime(client, message):
     yanto = await message.reply("🔎 `Search PP Anime...`")
     message.from_user.first_name
