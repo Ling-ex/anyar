@@ -8,10 +8,10 @@
 #
 # kopas repo dan hapus credit, ga akan jadikan lu seorang developer
 # ©2023 Geez & Ram Team
-from rams import app
+from ling import app
 from pyrogram import filters
 
 
 @app.on_message(filters.command("start") & filters.private)
 async def start(client, message):
-   await message.reply_text("Hey RamPyro-Bot Assistant here")
+   await message.reply_text("Hey Hyper-Bot Assistant here")
