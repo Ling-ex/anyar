@@ -12,12 +12,12 @@ import os
 
 from pyrogram import Client, enums, filters, raw
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
-from geezlibs.ram.helpers.tools import get_arg
-from geezlibs.ram.utils import s_paste
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.tools import get_arg
+from hyperlibs.ling.utils import s_paste
 from config import CMD_HANDLER as cmd
-from rams import *
+from ling import *
 
 from .help import *
 
