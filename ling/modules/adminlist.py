@@ -13,9 +13,9 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.parser import mention_html, mention_markdown
-from rams.modules.help import *
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.parser import mention_html, mention_markdown
+from ling.modules.help import *
 
 
 @Client.on_message(filters.me & filters.command(["admins", "adminlist"], cmd))
