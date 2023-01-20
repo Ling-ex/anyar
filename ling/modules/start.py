@@ -16,7 +16,7 @@ from hyperlibs.ling.helpers.basic import edit_or_reply
 from hyperlibs.ling.helpers.constants import First
 from config import CMD_HANDLER as cmd
 from config import *
-from rams import *
+from ling import *
 
 from .help import add_command_help
 
