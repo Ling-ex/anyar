@@ -1,7 +1,7 @@
 {
-  "name": "RamPyro-Bot",
-  "description": "[RamPyro-Bot] is a modular telegram user that runs on Python3 with a pyrogram library. Powered by RamPyro-Bot.",
-  "logo": "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg",
+  "name": "Ling-Ubot",
+  "description": "[Ling-Ubot] is a modular telegram user that runs on Python3 with a pyrogram library. Powered by Ling-Ubot.",
+  "logo": "https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg",
   "stack": "heroku-22",
   "env": {
     "STRING_SESSION1": {
