@@ -16,8 +16,8 @@ from pyrogram import Client, filters
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from pyrogram.types import *
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply, get_text
-from geezlibs.ram.helpers.constants import MEMES
+from hyperlibs.ling.helpers.basic import edit_or_reply, get_text
+from hyperlibs.ling.helpers.constants import MEMES
 from config import CMD_HANDLER as cmd
 
 
