@@ -13,11 +13,11 @@ import dotenv
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from requests import get
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.misc import HAPP, in_heroku
-from geezlibs.ram.helpers.tools import get_arg
-from geezlibs.ram.utils.misc import restart
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.misc import HAPP, in_heroku
+from hyperlibs.ling.helpers.tools import get_arg
+from hyperlibs.ling.utils.misc import restart
 from config import BLACKLIST_GCAST
 from config import CMD_HANDLER as cmd
 
@@ -26,12 +26,12 @@ from .help import add_command_help
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
-        "https://raw.githubusercontent.com/vckyou/Reforestation/master/blacklistgcast.json"
+        "https://raw.githubusercontent.com/Ling-ex/Reforestation/master/blacklistgcast.json"
     )
     if _GCAST_BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        GCAST_BLACKLIST = [-1001459812644, -1001692751821, -1001813669338]
+        GCAST_BLACKLIST = [-1001459812644, -1001692751821, -1001813669338, -1001883961446]
     GCAST_BLACKLIST = _GCAST_BLACKLIST.json()
     break
 
