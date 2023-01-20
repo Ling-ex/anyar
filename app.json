@@ -1,0 +1,43 @@
+{
+  "name": "RamPyro-Bot",
+  "description": "[RamPyro-Bot] is a modular telegram user that runs on Python3 with a pyrogram library. Powered by RamPyro-Bot.",
+  "logo": "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg",
+  "stack": "heroku-22",
+  "env": {
+    "STRING_SESSION1": {
+      "description": "Dapatkan String Session Pyrogram di Grup » https://t.me/ramsupportt » Lalu ketik #string",
+      "required": true
+    },
+    "HEROKU_API_KEY": {
+      "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
+      "required": false
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
+      "required": false
+    },
+    "BOT_TOKEN": {
+      "description": "Masukan Bot Token Untuk Menghidupkan inline Bot",
+      "required": true
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
