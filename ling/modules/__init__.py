@@ -2,11 +2,11 @@ import glob
 from os.path import basename, dirname, isfile
 
 from config import *
-from rams import *
-from geezlibs.ram.helpers import *
-from geezlibs.ram.helpers.SQL import *
-from geezlibs.ram.resources import *
-from geezlibs.ram.utils import *
+from ling import *
+from hyperlibs.ling.helpers import *
+from hyperlibs.ling.helpers.SQL import *
+from hyperlibs.ling.resources import *
+from hyperlibs.ling.utils import *
 
 
 def __list_all_modules():
