@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String
 
-from ling.helpers.SQL import BASE, SESSION
+from hyperlibs.ling.helpers.SQL import BASE, SESSION
 
 # class set_req
 # class get_req
