@@ -11,12 +11,12 @@ import time
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.msg_types import Types, get_message_type
-from geezlibs.ram.helpers.parser import escape_markdown, mention_markdown
-from geezlibs.ram.helpers.SQL.afk_db import get_afk, set_afk
+from hyperlibs.ling.helpers.msg_types import Types, get_message_type
+from hyperlibs.ling.helpers.parser import escape_markdown, mention_markdown
+from hyperlibs.ling.helpers.SQL.afk_db import get_afk, set_afk
 from config import CMD_HANDLER as cmd
-from rams import BOTLOG_CHATID
-from rams.modules.help import add_command_help
+from ling import BOTLOG_CHATID
+from ling.modules.help import add_command_help
 
 # Set priority to 11 and 12
 MENTIONED = []
