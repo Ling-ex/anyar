@@ -12,15 +12,15 @@ from asyncio import sleep
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
-from geezlibs.ram.utils.misc import extract_user
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.utils.misc import extract_user
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
 
 flood = {}
-profile_photo = "rams/modules/cache/pfp.jpg"
+profile_photo = "ling/modules/cache/pfp.jpg"
 
 
 @Client.on_message(filters.command(["block"], cmd) & filters.me)
