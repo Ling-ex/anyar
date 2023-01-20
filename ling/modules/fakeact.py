@@ -12,7 +12,7 @@ from asyncio import sleep
 from pyrogram import Client, enums, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
