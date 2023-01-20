@@ -12,10 +12,10 @@ from os import environ, execle, remove
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.misc import HAPP
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.misc import HAPP
 from config import CMD_HANDLER as cmd
-from rams import BOTLOG_CHATID, LOGGER
+from ling import BOTLOG_CHATID, LOGGER
 
 from .help import add_command_help
 
@@ -32,7 +32,7 @@ async def restart_bot(_, message: Message):
     if HAPP is not None:
         HAPP.restart()
     else:
-        args = [sys.executable, "-m", "rams"]
+        args = [sys.executable, "-m", "ling"]
         execle(sys.executable, *args, environ)
 
 
@@ -42,9 +42,9 @@ async def shutdown_bot(client: Client, message: Message):
         await client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**RamPyro-Bot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**Hyper-Bot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await edit_or_reply(message, "**RamPyro-Bot Berhasil di matikan!**")
+    await edit_or_reply(message, "**Hyper-Bot Berhasil di matikan!**")
     if HAPP is not None:
         HAPP.process_formation()["worker"].scale(0)
     else:
@@ -64,7 +64,7 @@ async def logs_ubot(client: Client, message: Message):
     await client.send_document(
         message.chat.id,
         "Logs-Heroku.txt",
-        thumb="rams/resources/logo.jpg",
+        thumb="ling/resources/logo.jpg",
         caption="**Ini Logs Heroku anda**",
     )
     await Man.delete()
