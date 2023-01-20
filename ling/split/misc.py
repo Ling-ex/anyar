@@ -108,7 +108,7 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(HEROKU_API_KEY)
                 HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("rams").info(f"Heroku App Configured")
+                LOGGER("ling").info(f"Heroku App Configured")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
                 LOGGER("Heroku").info(
@@ -125,7 +125,7 @@ async def create_botlog(client):
     LOGGER("ling").info(
         "SEBENTAR YA ASU, GUA LAGI BIKIN GRUPLOG BUAT LU."
     )
-    desc = "Group Log untuk Ling-Ubot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n⭐ Powered By ~ @userbotch ⭐"
+    desc = "Group Log untuk Ling-Ubot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n⭐ Powered By ~ @HyperSupportQ ®"
     try:
         gruplog = await client.create_supergroup("Logs HyperRobot", desc)
         if await in_heroku():
