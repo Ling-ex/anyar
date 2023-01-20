@@ -4,7 +4,7 @@ aiohttp
 asyncio
 bs4
 ffmpeg
-geezlibs
+hyperlibs
 gitpython
 googlesearch-python== 1.0.1
 gpytranslate
