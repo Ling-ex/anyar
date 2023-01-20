@@ -11,30 +11,27 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.SQL.globals import addgvar, gvarstatus
-from geezlibs.ram.helpers.tools import get_arg
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.SQL.globals import addgvar, gvarstatus
+from hyperlibs.ling.helpers.tools import get_arg
 from config import CMD_HANDLER as cmd
-from rams import TEMP_SETTINGS
+from ling import TEMP_SETTINGS
 
 from .help import add_command_help
 
 DEF_UNAPPROVED_MSG = (
-    "╭━━━━━━━━━━━━━━━━━╮\n    🌟SELAMAT DATANG🌟\n"
-    "╰━━━━━━━━━━━━━━━━━╯\n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    "Mohon Bersabar Kontol, Saya Sebagai\n"
-    f"Bot asisstant Menyarankan Anda, Untuk Sadar Diri.\n"
-    f"Siapa Tau Anda Jelek, Atau Memang Dianggap Tidak Penting Sama **My Lord** \n"
-    "Atau anda memang jelek Dan Ga berguna,Seperti Sampah masyarakat \n"
-    "Jadi Jangan Spam, Nanti anda saya blokir.\n"
-    f"Tunggu **My Lord** membalas Pesan Dan menyetujui Anda\n Terimakasih\n"
-    "▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\n"
-    "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
-    "┣[• 𝐁𝐎𝐓 𝐌𝐄𝐒𝐒𝐀𝐆𝐄\n"
-    "┣[• 𝐁𝐘 ⭐️𝐑𝐚𝐦𝐏𝐲𝐫𝐨-𝐁𝐨𝐭⭐️\n"
-    "╰✠╼━━━━━━❖━━━━━━━✠╯"
+    "Selamat Datang\n
+➖➖➖➖➖➖➖➖➖➖
+Owner: @excute7
+Assistant: @Ling_Musik_Bot
+    "➖➖➖➖➖➖➖➖➖➖
+    "Jangan Melakukan Spam Chat\n
+    "Sebelum Di konfirmasi, Atau Anda\n
+    f"Akan Otomatis Terblokir.\n
+    f"➖➖➖➖➖➖➖➖➖➖\n
+    "ᴏᴡɴᴇʀ: [ᴏᴡɴᴇʀ](https://t.me/excute7) | [˹ʟɪɴɢ˼](https://t.me/InlineKeyboardMarkup)
+    "Aꜱꜱɪꜱᴛᴀɴᴛ: [Hʏᴘᴇʀ Assɪsᴛᴀɴᴛ 🇮🇩](https://t.me/Ling_Musik_Bot)
 )
 
 
@@ -43,8 +40,8 @@ DEF_UNAPPROVED_MSG = (
 )
 async def incomingpm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.globals import gvarstatus
-        from rams.helpers.SQL.pm_permit_sql import is_approved
+        from ling.helpers.SQL.globals import gvarstatus
+        from ling.helpers.SQL.pm_permit_sql import is_approved
     except BaseException:
         pass
 
@@ -100,7 +97,7 @@ async def incomingpm(client: Client, message: Message):
 
 async def auto_accept(client, message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import approve, is_approved
+        from ling.helpers.SQL.pm_permit_sql import approve, is_approved
     except BaseException:
         pass
 
@@ -224,7 +221,7 @@ async def setpm_limit(client: Client, cust_msg: Message):
             f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
         )
     try:
-        from rams.helpers.SQL.globals import addgvar
+        from ling.helpers.SQL.globals import addgvar
     except AttributeError:
         await cust_msg.edit("**Running on Non-SQL mode!**")
         return
