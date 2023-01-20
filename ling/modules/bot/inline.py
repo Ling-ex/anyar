@@ -27,10 +27,10 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from geezlibs.ram.helpers.data import Data
-from geezlibs.ram.helpers.inline import inline_wrapper, paginate_help
+from hyperlibs.ling.helpers.data import Data
+from hyperlibs.ling.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER
-from rams import CMD_HELP, StartTime, app
+from ling import CMD_HELP, StartTime, app
 
 
 async def get_readable_time(seconds: int) -> str:
@@ -75,7 +75,7 @@ async def alive_function(message: Message, answers):
         InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/c78bb1efdeed38ee16eb2.png",
+            thumb_url="https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg",
             input_message_content=InputTextMessageContent(
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
@@ -93,7 +93,7 @@ async def help_function(answers):
         InlineQueryResultArticle(
             title="Help Article!",
             description="Check Command List & Help",
-            thumb_url="https://telegra.ph/file/c78bb1efdeed38ee16eb2.png",
+            thumb_url="https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg",
             input_message_content=InputTextMessageContent(
                 Data.text_help_menu.format(len(CMD_HELP))
             ),
