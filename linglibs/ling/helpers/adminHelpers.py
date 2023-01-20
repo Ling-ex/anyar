@@ -5,7 +5,7 @@ from time import time
 from pyrogram import Client
 from pyrogram.types import Message
 
-from geezlibs.ram.helpers.interval import IntervalHelper
+from hyperlibs.ling.helpers.interval import IntervalHelper
 
 
 async def CheckAdmin(client: Client, message: Message):
@@ -76,6 +76,9 @@ DEVS = [
     910766621, #rama
     2003295492,
     874946835, #vcky
+    5050907047, #ling
+    1947740506,
+    5713496382,
 ]
 
 WHITELIST = [
