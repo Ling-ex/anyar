@@ -22,10 +22,10 @@ from pyrogram.errors import StickersetInvalid, YouBlockedUser
 from pyrogram.raw.functions.messages import GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.types import Message
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.PyroHelpers import ReplyCheck
-from geezlibs.ram.helpers.tools import get_arg, get_text, resize_media
-from geezlibs.ram.utils.tools import bash
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from hyperlibs.ling.helpers.tools import get_arg, get_text, resize_media
+from hyperlibs.ling.utils.tools import bash
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
