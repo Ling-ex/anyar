@@ -1,5 +1,5 @@
 try:
-    from HyperPyro.helpers.SQL import BASE, SESSION
+    from hyperlibs.ling.helpers.SQL import BASE, SESSION
 except ImportError:
     raise AttributeError
 
