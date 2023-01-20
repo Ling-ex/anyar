@@ -11,9 +11,9 @@ from datetime import datetime
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.ram.helpers.adminHelpers import DEVS
-from geezlibs.ram.helpers.basic import edit_or_reply
-from geezlibs.ram.helpers.constants import First
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.constants import First
 from config import CMD_HANDLER as cmd
 from config import *
 from rams import *
@@ -32,7 +32,7 @@ absen = [
 
 @Client.on_message(filters.command("gesss", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
-    await message.reply("**Sayang Rama😍!**")
+    await message.reply("**Mwaaah 🥵**")
 
 
 @Client.on_message(filters.command("repo", cmd) & filters.me)
