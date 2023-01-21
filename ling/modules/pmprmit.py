@@ -21,7 +21,7 @@ from ling import TEMP_SETTINGS
 from .help import add_command_help
 
 DEF_UNAPPROVED_MSG = (
-    "ꜱᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ [{name0}](tg://user?id={uid})\n"
+    "•ꜱᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ•\n"
     "➖➖➖➖➖➖➖➖➖➖\n"
     "ᴊᴀɴɢᴀɴ ᴍᴇʟᴀᴋᴜᴋᴀɴ ꜱᴘᴀᴍ ᴄʜᴀᴛ\n"
     "ꜱᴇʙᴇʟᴜᴍ ᴅɪ ᴋᴏɴꜰɪʀᴍᴀꜱɪ, ᴀᴛᴀᴜ ᴀɴᴅᴀ\n"
