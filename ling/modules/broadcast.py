@@ -102,7 +102,7 @@ async def gucast_cmd(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("blchat", cmd) & filters.me)
+@Client.on_message(filters.command("listbl", cmd) & filters.me)
 async def blchatgcast(client: Client, message: Message):
     blacklistgc = "True" if BLACKLIST_GCAST else "False"
     list = BLACKLIST_GCAST.replace(" ", "\n» ")
@@ -115,7 +115,7 @@ async def blchatgcast(client: Client, message: Message):
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
 
 
-@Client.on_message(filters.command("addblacklist", cmd) & filters.me)
+@Client.on_message(filters.command("addbl", cmd) & filters.me)
 async def addblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
@@ -143,7 +143,7 @@ async def addblacklist(client: Client, message: Message):
     restart()
 
 
-@Client.on_message(filters.command("delblacklist", cmd) & filters.me)
+@Client.on_message(filters.command("delbl", cmd) & filters.me)
 async def delblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
@@ -179,15 +179,15 @@ add_command_help(
             "Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)",
         ],
         [
-            "blchat",
+            "listbl",
             "Untuk Mengecek informasi daftar blacklist gcast.",
         ],
         [
-            "addblacklist",
+            "addbl",
             "Untuk Menambahkan grup tersebut ke blacklist gcast.",
         ],
         [
-            "delblacklist",
+            "delbl",
             f"Untuk Menghapus grup tersebut dari blacklist gcast.\n\n  •  **Note : **Ketik perintah** `{cmd}addblacklist` **dan** `{cmd}delblacklist` **di grup yang kamu Blacklist.",
         ],
     ],
