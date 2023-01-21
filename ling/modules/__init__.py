@@ -3,10 +3,10 @@ from os.path import basename, dirname, isfile
 
 from config import *
 from ling import *
-from hyperlibs.ling.helpers import *
-from hyperlibs.ling.helpers.SQL import *
-from hyperlibs.ling.resources import *
-from hyperlibs.ling.utils import *
+from ling.helpers import *
+from ling.helpers.SQL import *
+from ling.resources import *
+from ling.utils import *
 
 
 def __list_all_modules():
