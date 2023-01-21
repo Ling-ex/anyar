@@ -22,7 +22,7 @@ from ling.helpers.PyroHelpers import ReplyCheck
 from ling.helpers.SQL.globals import gvarstatus
 from ling.helpers.tools import convert_to_image
 from ling.utils import get_readable_time
-from hyperlibs.ling.utils.misc import restart
+from ling.utils.misc import restart
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
 from config import GROUP
