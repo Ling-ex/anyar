@@ -21,9 +21,9 @@ import requests
 import urllib3
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
+from ling.helpers.basic import edit_or_reply
 from ling.split.misc import HAPP, in_heroku
-from hyperlibs.ling.utils.misc import restart
+from ling.utils.misc import restart
 from config import *
 
 from .help import add_command_help
