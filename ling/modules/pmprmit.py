@@ -103,7 +103,7 @@ async def auto_accept(client, message):
             approve(message.chat.id)
             await client.send_message(
                 message.chat.id,
-                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer RamPyro-Bot</b>",
+                f"<b>Menerima Pesan!!!</b>\n{message.from_user.mention} <b>Terdeteksi Developer HyperRobot</b>",
                 parse_mode=enums.ParseMode.HTML,
             )
         except IntegrityError:
@@ -141,7 +141,7 @@ async def auto_accept(client, message):
 )
 async def approvepm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import approve
+        from ling.helpers.SQL.pm_permit_sql import approve
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
