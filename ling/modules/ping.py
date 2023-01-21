@@ -140,7 +140,7 @@ async def ramping(client: Client, message: Message):
         text="\n"
         " Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ\n"
         "  Status : _Hʏᴘᴇʀ Aᴋᴛɪꜰ_\n"
-        f"
+        "   dc: `5`
         f"ㅤ ping bot:"
         f"`%sms` \n"
         f"ㅤ hyper uptime:"
