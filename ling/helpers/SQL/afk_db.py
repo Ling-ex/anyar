@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Column, String, UnicodeText
 
-from geezlibs.ram.helpers.SQL import BASE, SESSION
+from ling.helpers.SQL import BASE, SESSION
 
 Owner = 0
 
