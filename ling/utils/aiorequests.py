@@ -11,7 +11,7 @@ Thia file is part of KASTA ID
 
 from typing import Optional, Set, Any
 from sys import version_info
-from rams import ClientSession 
+from ling import ClientSession 
 
 
 aiover=ClientSession
