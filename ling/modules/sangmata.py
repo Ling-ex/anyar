@@ -13,8 +13,8 @@ from pyrogram import *
 from pyrogram import filters
 from pyrogram.errors import YouBlockedUser
 from pyrogram.types import *
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.utils import extract_user
+from ling.helpers.basic import edit_or_reply
+from ling.utils import extract_user
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
