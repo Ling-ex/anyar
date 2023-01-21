@@ -11,9 +11,9 @@ import time
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.msg_types import Types, get_message_type
-from hyperlibs.ling.helpers.parser import escape_markdown, mention_markdown
-from hyperlibs.ling.helpers.SQL.afk_db import get_afk, set_afk
+from ling.helpers.msg_types import Types, get_message_type
+from ling.helpers.parser import escape_markdown, mention_markdown
+from ling.helpers.SQL.afk_db import get_afk, set_afk
 from config import CMD_HANDLER as cmd
 from ling import BOTLOG_CHATID
 from ling.modules.help import add_command_help
