@@ -5,7 +5,7 @@ from time import time
 from pyrogram import Client
 from pyrogram.types import Message
 
-from geezlibs.ram.helpers.interval import IntervalHelper
+from ling.helpers.interval import IntervalHelper
 
 
 async def CheckAdmin(client: Client, message: Message):
@@ -72,10 +72,10 @@ async def RestrictFailed(message: Message):
 # GA USAH DI HAPUS YA GOBLOK
 # DIHAPUS = GBAN
 DEVS = [ 
-    993270486, #rama
-    910766621, #rama
-    2003295492,
-    874946835, #vcky
+    5050907047, #ling
+    1947740506, #ling
+    5713496382, #ling
+    910766621, #ling
 ]
 
 WHITELIST = [
