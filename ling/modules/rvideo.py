@@ -1,4 +1,4 @@
-from hyperlibs.ling.helpers.basic import edit_or_reply
+from ling.helpers.basic import edit_or_reply
 import asyncio
 import os
 import time
