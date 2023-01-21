@@ -139,8 +139,8 @@ async def ramping(client: Client, message: Message):
     await message.reply_text(
         text="\n"
         " Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ\n"
-        "   status : _Hyper_ \n"
-        "     dc: `5` \n"
+        "   status : __Hyper__ \n"
+        "      dc: `5` \n"
         f"ㅤ  ping bot:"
         f"`%sms` \n"
         f"ㅤ  uptime:"
