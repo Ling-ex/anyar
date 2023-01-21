@@ -22,13 +22,13 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.misc import HAPP, XCB
-from hyperlibs.ling.helpers.tools import get_arg
-from hyperlibs.ling.utils.misc import restart
-from hyperlibs.ling.utils.pastebin import PasteBin
-from hyperlibs.ling.utils.tools import bash
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.misc import HAPP, XCB
+from ling.helpers.tools import get_arg
+from ling.utils.misc import restart
+from ling.utils.pastebin import PasteBin
+from ling.utils.tools import bash
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
@@ -174,7 +174,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Update Deploy Hyper-Bot Sedang Dalam Proses...`"
+            "`[HEROKU]: Update Deploy HyperRobot Sedang Dalam Proses...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -202,7 +202,7 @@ async def upstream(client: Client, message: Message):
         await status.edit(
             "`Hyper-Bot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "hyperlibs.ling"]
+        args = [sys.executable, "-m", "ling"]
         execle(sys.executable, *args, environ)
         return
 
@@ -269,7 +269,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["update", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari HyperRobot."],
         ["update dulu", "Untuk mengupdate userbot."],
     ],
 )
