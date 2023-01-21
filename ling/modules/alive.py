@@ -17,11 +17,11 @@ from pyrogram import __version__ as versipyro
 from pyrogram import filters
 from pyrogram.types import Message
 from telegraph import exceptions, upload_file
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
-from hyperlibs.ling.helpers.SQL.globals import gvarstatus
-from hyperlibs.ling.helpers.tools import convert_to_image
-from hyperlibs.ling.utils import get_readable_time
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
+from ling.helpers.SQL.globals import gvarstatus
+from ling.helpers.tools import convert_to_image
+from ling.utils import get_readable_time
 from hyperlibs.ling.utils.misc import restart
 from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
@@ -33,10 +33,10 @@ from .help import add_command_help
 
 modules = CMD_HELP
 alive_logo = (
-    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/eda4816a97d4e74445fc0.jpg"
+    gvarstatus("ALIVE_LOGO") or "https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg"
 )
 emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
-alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am rams."
+alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am hyper."
 
 
 @Client.on_message(filters.command(["alive", "gue"], cmd) & filters.me)
