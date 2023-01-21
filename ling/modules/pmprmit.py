@@ -21,17 +21,14 @@ from ling import TEMP_SETTINGS
 from .help import add_command_help
 
 DEF_UNAPPROVED_MSG = (
-    "Selamat Datang\n
-➖➖➖➖➖➖➖➖➖➖
-Owner: @excute7
-Assistant: @Ling_Musik_Bot
-    "➖➖➖➖➖➖➖➖➖➖
-    "Jangan Melakukan Spam Chat\n
-    "Sebelum Di konfirmasi, Atau Anda\n
-    f"Akan Otomatis Terblokir.\n
-    f"➖➖➖➖➖➖➖➖➖➖\n
-    "ᴏᴡɴᴇʀ: [ᴏᴡɴᴇʀ](https://t.me/excute7) | [˹ʟɪɴɢ˼](https://t.me/InlineKeyboardMarkup)
-    "Aꜱꜱɪꜱᴛᴀɴᴛ: [Hʏᴘᴇʀ Assɪsᴛᴀɴᴛ 🇮🇩](https://t.me/Ling_Musik_Bot)
+    "Selamat Datang\n"
+    "➖➖➖➖➖➖➖➖➖➖"
+    "Jangan Melakukan Spam Chat\n"
+    "Sebelum Di konfirmasi, Atau Anda\n"
+    f"Akan Otomatis Terblokir.\n"
+    f"➖➖➖➖➖➖➖➖➖➖\n"
+    "ᴏᴡɴᴇʀ: [ᴏᴡɴᴇʀ](https://t.me/excute7) | [˹ʟɪɴɢ˼](https://t.me/InlineKeyboardMarkup)"
+    "Aꜱꜱɪꜱᴛᴀɴᴛ: [Hʏᴘᴇʀ Assɪsᴛᴀɴᴛ 🇮🇩](https://t.me/Ling_Musik_Bot)"
 )
 
 
