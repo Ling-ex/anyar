@@ -11,10 +11,10 @@ import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
-from hyperlibs.ling.utils import extract_user, extract_user_and_reason
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
+from ling.utils import extract_user, extract_user_and_reason
 from config import BLACKLIST_CHAT
 from config import CMD_HANDLER as cmd
 from .help import add_command_help
