@@ -14,10 +14,10 @@ from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
 
 from config import CMD_HANDLER as cmd
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
 from ling.modules.help import add_command_help
-from hyperlibs.ling.utils.misc import extract_user, extract_user_and_reason, list_admins
+from ling.utils.misc import extract_user, extract_user_and_reason, list_admins
 
 unmute_permissions = ChatPermissions(
     can_send_messages=True,
