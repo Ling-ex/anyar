@@ -12,8 +12,8 @@ from io import BytesIO
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
 from ling import aiosession
 
