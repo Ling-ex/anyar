@@ -21,13 +21,13 @@ from ling import TEMP_SETTINGS
 from .help import add_command_help
 
 DEF_UNAPPROVED_MSG = (
-    "Selamat Datang\n"
+    "Selamat Datang [{name0}](tg://user?id={uid})\n"
     "➖➖➖➖➖➖➖➖➖➖"
     "Jangan Melakukan Spam Chat\n"
     "Sebelum Di konfirmasi, Atau Anda\n"
     f"Akan Otomatis Terblokir.\n"
     f"➖➖➖➖➖➖➖➖➖➖\n"
-    "ᴏᴡɴᴇʀ: [ᴏᴡɴᴇʀ](https://t.me/excute7) | [˹ʟɪɴɢ˼](https://t.me/InlineKeyboardMarkup)"
+    "ᴏᴡɴᴇʀ: [ᴏᴡɴᴇʀ](https://t.me/excute7) | [˹ʟɪɴɢ˼](https://t.me/InlineKeyboardMarkup) \n"
     "Aꜱꜱɪꜱᴛᴀɴᴛ: [Hʏᴘᴇʀ Assɪsᴛᴀɴᴛ 🇮🇩](https://t.me/Ling_Musik_Bot)"
 )
 
@@ -180,7 +180,7 @@ async def approvepm(client: Client, message: Message):
 )
 async def disapprovepm(client: Client, message: Message):
     try:
-        from rams.helpers.SQL.pm_permit_sql import dissprove
+        from ling.helpers.SQL.pm_permit_sql import dissprove
     except BaseException:
         await message.edit("Running on Non-SQL mode!")
         return
