@@ -10,8 +10,8 @@ import asyncio
 from prettytable import PrettyTable
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.utility import split_list
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.utility import split_list
 from config import CMD_HANDLER as cmd
 from ling import CMD_HELP,app
 
