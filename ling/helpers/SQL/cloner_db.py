@@ -1,4 +1,4 @@
-from geezlibs.ram.helpers.SQL import BASE, SESSION
+from ling.helpers.SQL import BASE, SESSION
 from pyrogram import Client
 from sqlalchemy import Column, String, UnicodeText
 
