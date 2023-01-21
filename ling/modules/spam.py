@@ -12,8 +12,8 @@ from threading import Event
 
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.utils.misc import extract_args
+from ling.helpers.basic import edit_or_reply
+from ling.utils.misc import extract_args
 from config import BLACKLIST_CHAT, BOTLOG_CHATID
 from config import CMD_HANDLER as cmd
 
