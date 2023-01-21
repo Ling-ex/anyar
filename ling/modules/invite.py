@@ -12,7 +12,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.enums import ChatType, UserStatus
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
+from ling.helpers.basic import edit_or_reply
 from config import CMD_HANDLER as cmd
 from ling import BOTLOG_CHATID
 
