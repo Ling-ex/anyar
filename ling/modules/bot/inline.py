@@ -27,8 +27,8 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-from hyperlibs.ling.helpers.data import Data
-from hyperlibs.ling.helpers.inline import inline_wrapper, paginate_help
+from ling.helpers.data import Data
+from ling.helpers.inline import inline_wrapper, paginate_help
 from config import BOT_VER
 from ling import CMD_HELP, StartTime, app
 
