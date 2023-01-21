@@ -12,10 +12,10 @@ import os
 
 from pyrogram import Client, enums, filters, raw
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
-from hyperlibs.ling.helpers.tools import get_arg
-from hyperlibs.ling.utils import s_paste
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
+from ling.helpers.tools import get_arg
+from ling.utils import s_paste
 from config import CMD_HANDLER as cmd
 from ling import *
 
