@@ -11,8 +11,8 @@ import asyncio
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
 from config import CMD_HANDLER as cmd
 from config import IG_ALIVE, CH_SFS
 from .help import add_command_help
