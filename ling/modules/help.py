@@ -56,7 +56,7 @@ async def module_help(client: Client, message: Message):
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
-                f"**Usage:** `*help broadcast` **To View Module Information**"
+                f"**Usage:** `{cmd}help broadcast` **To View Module Information**"
             )
             return
 
@@ -96,7 +96,7 @@ async def module_helper(client: Client, message: Message):
             message, f"```{str(ac)}```\n• @storyQi >< @HyperSupportQ •"
         )
         await message.reply(
-            f"**Usage**:`*help broadcast` **To View Module details**"
+            f"**Usage**:`{cmd}help broadcast` **To View Module details**"
         )
 
     if help_arg:
