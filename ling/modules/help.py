@@ -63,7 +63,7 @@ async def module_help(client: Client, message: Message):
     if help_arg:
         if help_arg in CMD_HELP:
             commands: dict = CMD_HELP[help_arg]
-            this_command = f"**Help For {str(help_arg).upper()}** 」──\n\n"
+            this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `*{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @storyQi"
