@@ -9,10 +9,10 @@
 
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
-from hyperlibs.ling.helpers.adminHelpers import DEVS, WHITELIST
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import get_ub_chats
-from hyperlibs.ling.utils import extract_user, extract_user_and_reason
+from ling.helpers.adminHelpers import DEVS, WHITELIST
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import get_ub_chats
+from ling.utils import extract_user, extract_user_and_reason
 from config import CMD_HANDLER as cmd
 from ling import *
 
@@ -24,8 +24,8 @@ def globals_init():
         global sql, sql2
         from importlib import import_module
 
-        sql = import_module("hyperlibs.ling.helpers.SQL.gban_sql")
-        sql2 = import_module("hyperlibs.ling.helpers.SQL.gmute_sql")
+        sql = import_module("ling.helpers.SQL.gban_sql")
+        sql2 = import_module("ling.helpers.SQL.gmute_sql")
     except Exception as e:
         sql = None
         sql2 = None
