@@ -6,8 +6,8 @@ from pyrogram import *
 from pyrogram.types import *
 from pyrogram import Client as ling
 from pyrogram import Client, enums, filters
-from hyperlibs.ling.helpers.basic import *
-from hyperlibs.ling.helpers.PyroHelpers import *
+from ling.helpers.basic import *
+from ling.helpers.PyroHelpers import *
 from ling import *
 from .help import add_command_help
 
