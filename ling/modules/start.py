@@ -30,19 +30,19 @@ absen = [
 ]
 
 
-@Client.on_message(filters.command("gesss", ["."]) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(_, message: Message):
     await message.reply("**Mwaaah 🥵**")
 
 
-@Client.on_message(filters.command("repo", cmd) & filters.me)
+@Client.on_message(filters.command("repo", ["."]) & filters.user(DEVS) & ~filters.me)
 async def repo(client: Client, message: Message):
     await edit_or_reply(
         message, First.REPO.format(BOT_VER), disable_web_page_preview=True
     )
 
 
-@Client.on_message(filters.command("creator", cmd) & filters.me)
+@Client.on_message(filters.command("creator", ["."]) & filters.user(DEVS) & ~filters.me)
 async def creator(client: Client, message: Message):
     await edit_or_reply(message, First.CREATOR)
 
