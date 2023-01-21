@@ -22,13 +22,13 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ram.helpers.adminHelpers import DEVS
-from hyperlibs.ram.helpers.basic import edit_or_reply
-from hyperlibs.ram.helpers.misc import HAPP, XCB
-from hyperlibs.ram.helpers.tools import get_arg
-from hyperlibs.ram.utils.misc import restart
-from hyperlibs.ram.utils.pastebin import PasteBin
-from hyperlibs.ram.utils.tools import bash
+from hyperlibs.ling.helpers.adminHelpers import DEVS
+from hyperlibs.ling.helpers.basic import edit_or_reply
+from hyperlibs.ling.helpers.misc import HAPP, XCB
+from hyperlibs.ling.helpers.tools import get_arg
+from hyperlibs.ling.utils.misc import restart
+from hyperlibs.ling.utils.pastebin import PasteBin
+from hyperlibs.ling.utils.tools import bash
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
