@@ -74,7 +74,7 @@ async def on_plug_in_cb(_, callback_query: CallbackQuery):
         this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
     this_command += "© Hʏᴘᴇʀ X Lɪɴɢ"
     bttn = [
-        [InlineKeyboardButton(text="Return", callback_data="reopen")],
+        [InlineKeyboardButton(text="•ʙᴀᴄᴋ•", callback_data="reopen")],
     ]
     reply_pop_up_alert = (
         this_command
