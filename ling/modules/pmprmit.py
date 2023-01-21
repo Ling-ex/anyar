@@ -11,10 +11,10 @@
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from sqlalchemy.exc import IntegrityError
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.SQL.globals import addgvar, gvarstatus
-from hyperlibs.ling.helpers.tools import get_arg
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.SQL.globals import addgvar, gvarstatus
+from ling.helpers.tools import get_arg
 from config import CMD_HANDLER as cmd
 from ling import TEMP_SETTINGS
 
