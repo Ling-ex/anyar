@@ -139,13 +139,13 @@ async def ramping(client: Client, message: Message):
     await message.reply_text(
         text="\n"
         " Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ\n"
-        "  Status : _Hʏᴘᴇʀ Aᴋᴛɪꜰ_ \n"
-        "   dc: `5` \n"
-        f"ㅤ ping bot:"
+        "   status : _Hyper_ \n"
+        "     dc: `5` \n"
+        f"ㅤ  ping bot:"
         f"`%sms` \n"
-        f"ㅤ hyper uptime:"
+        f"ㅤ  uptime:"
         f"`{uptime}` \n"
-        f"ㅤ Owner : {client.me.mention}" % (duration),
+        f"ㅤ  Owner : {client.me.mention}" % (duration),
     )
         
 add_command_help(
