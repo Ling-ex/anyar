@@ -11,9 +11,9 @@ from datetime import datetime
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.constants import First
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.constants import First
 from config import CMD_HANDLER as cmd
 from config import *
 from ling import *
