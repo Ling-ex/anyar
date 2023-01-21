@@ -39,20 +39,20 @@ emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am hyper."
 
 
-@Client.on_message(filters.command(["alive", "gue"], cmd) & filters.me)
+@Client.on_message(filters.command(["alive", "hyper"], cmd) & filters.me)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"**꧁༺[Hʏᴘᴇʀ-Uʙᴏᴛ](https://github.com/Ling-ex/Ling-Ubot)༻꧂**\n\n"
+        f"──「 **[Hʏᴘᴇʀ-Uʙᴏᴛ](https://github.com/Ling-ex/Ling-Ubot)** 」──\n\n"
         f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
         f"{emoji} <b>ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
         f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
-        f"➠ Mʏ Mᴀꜱᴛᴇʀ : [ᴋʟɪᴋ](tg://user?id={client.me.id}) \n\n"
+        f"➠ Mʏ Mᴀꜱᴛᴇʀ : [↻˹zσɴкᴇʏ ᴅ ʟɪɴɢ˼](tg://user?id={client.me.id}) | [↻˹ʟɪɴɢ˼](t.me/InlineKeyboardMarkup)\n\n"
         f"    **[Sᴜᴘᴘᴏʀᴛ](https://t.me/{GROUP})** | **[Cʜᴀɴɴᴇʟ](https://t.me/{CHANNEL})** | **[Oᴡɴᴇʀ](t.me/excute7)**"
     )
     try:
@@ -160,7 +160,7 @@ add_command_help(
     "alive",
     [
         [
-            "alive",
+            "alive/hyper",
             "Untuk memeriksa userbot anda berfungsi atau tidak",
         ],
         [
