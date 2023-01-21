@@ -10,10 +10,10 @@ from ling.modules import ALL_MODULES
 
 MSG_ON = """
 🔥 **HyperRobot Menyala** 🔥
-╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
+╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 🤖 **Userbot Version -** `{}`
 ⌨️ **Ketik** `{}ling` **untuk Mengecheck Bot**
-╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
+╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 """
 MSG_BOT = (f"**Hyper Robot Assistant**\nis alive...")
 
