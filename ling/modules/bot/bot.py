@@ -69,12 +69,12 @@ async def _callbacks(_, callback_query: CallbackQuery):
 async def on_plug_in_cb(_, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
-    this_command = f"**Help For {str(modul_name).upper()}** 」──\n\n"
+    this_command = f"──「 **Help For {str(modul_name).upper()}** 」──\n\n"
     for x in commands:
         this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
     this_command += "© Hʏᴘᴇʀ X Lɪɴɢ"
     bttn = [
-        [InlineKeyboardButton(text="•ʙᴀᴄᴋ•", callback_data="reopen")],
+        [InlineKeyboardButton(text="• ʙᴀᴄᴋ •", callback_data="reopen")],
     ]
     reply_pop_up_alert = (
         this_command
