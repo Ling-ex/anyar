@@ -17,12 +17,12 @@ from pyrogram.types import Message
 from pyrogram.enums import ParseMode
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineKeyboardMarkup
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.constants import WWW
-from hyperlibs.ling.helpers.PyroHelpers import SpeedConvert
-from hyperlibs.ling.utils.tools import get_readable_time
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.constants import WWW
+from ling.helpers.PyroHelpers import SpeedConvert
+from ling.utils.tools import get_readable_time
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
 from ling import CMD_HELP, StartTime
@@ -130,7 +130,7 @@ async def kping(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("rama", cmd) & filters.me)
+@Client.on_message(filters.command("ling", cmd) & filters.me)
 async def ramping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
