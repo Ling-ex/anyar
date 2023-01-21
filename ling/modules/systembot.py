@@ -12,8 +12,8 @@ from os import environ, execle, remove
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.misc import HAPP
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.misc import HAPP
 from config import CMD_HANDLER as cmd
 from ling import BOTLOG_CHATID, LOGGER
 
