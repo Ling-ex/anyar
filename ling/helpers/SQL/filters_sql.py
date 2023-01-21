@@ -1,5 +1,5 @@
 try:
-    from geezlibs.ram.helpers.SQL import BASE, SESSION
+    from ling.helpers.SQL import BASE, SESSION
 except ImportError:
     raise AttributeError
 from sqlalchemy import Column, Numeric, String, UnicodeText
