@@ -1,5 +1,5 @@
 from pyrogram import *
-from pyrogram import Client as gez
+from pyrogram import Client as ling
 
 PREFIX = ["^", "?", "-", "+"]
 
