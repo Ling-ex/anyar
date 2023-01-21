@@ -13,7 +13,7 @@ import os
 from gtts import gTTS
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
+from ling.helpers.basic import edit_or_reply
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
