@@ -13,11 +13,11 @@ import dotenv
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from requests import get
-from hyperlibs.ling.helpers.adminHelpers import DEVS
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.misc import HAPP, in_heroku
-from hyperlibs.ling.helpers.tools import get_arg
-from hyperlibs.ling.utils.misc import restart
+from ling.helpers.adminHelpers import DEVS
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.misc import HAPP, in_heroku
+from ling.helpers.tools import get_arg
+from ling.utils.misc import restart
 from config import BLACKLIST_GCAST
 from config import CMD_HANDLER as cmd
 
@@ -98,7 +98,7 @@ async def gucast_cmd(client: Client, message: Message):
                     error += 1
                     await asyncio.sleep(0.3)
     await Man.edit_text(
-        f"**Berhasil Mengirim Pesan Ke** `{done}` **chat, Gagal Mengirim Pesan Ke** `{error}` **chat**"
+        f"**✔️Berhasil Mengirim Pesan Ke** `{done}` **chat, ❌Gagal Mengirim Pesan Ke** `{error}` **chat**"
     )
 
 
