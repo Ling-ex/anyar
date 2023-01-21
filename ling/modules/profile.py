@@ -12,9 +12,9 @@ from asyncio import sleep
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from hyperlibs.ling.helpers.basic import edit_or_reply
-from hyperlibs.ling.helpers.PyroHelpers import ReplyCheck
-from hyperlibs.ling.utils.misc import extract_user
+from ling.helpers.basic import edit_or_reply
+from ling.helpers.PyroHelpers import ReplyCheck
+from ling.utils.misc import extract_user
 from config import CMD_HANDLER as cmd
 
 from .help import add_command_help
