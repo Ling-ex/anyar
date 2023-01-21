@@ -4,7 +4,7 @@ from config import CMD_HANDLER as cmd
 from random import *
 from pyrogram import *
 from pyrogram.types import *
-from pyrogram import Client as ram
+from pyrogram import Client as ling
 from pyrogram import Client, enums, filters
 from hyperlibs.ling.helpers.basic import *
 from hyperlibs.ling.helpers.PyroHelpers import *
