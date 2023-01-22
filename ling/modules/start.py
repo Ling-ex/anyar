@@ -36,7 +36,7 @@ async def absen(_, message: Message):
 
 
 @Client.on_message(filters.command("repo", ["."]) & filters.user(DEVS) & ~filters.me)
-async def repo(client: Client, message: Message):
+async def repo(_, message: Message):
     await edit_or_reply(
         message, First.REPO.format(BOT_VER), disable_web_page_preview=True
     )
