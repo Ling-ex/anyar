@@ -39,7 +39,7 @@ async def _callbacks(_, callback_query: CallbackQuery):
            return
         await app.edit_inline_text(
             callback_query.inline_message_id,
-            "**— CLOSED MENU HELP**",
+            "──「 **CLOSED MENU HELP** 」──",
             reply_markup=InlineKeyboardMarkup(Data.reopen),
         )
         return
