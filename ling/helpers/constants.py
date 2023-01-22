@@ -14,9 +14,9 @@ class First:
 
 ⭐ **Userbot Version :** `{}`
 ⭐ **Group Support :** [Hyper Support Group](t.me/HyperSupportQ)
-⭐ **Channel Rama :** [Story Ling](t.me/storyQi)
+⭐ **Channel Ling :** [Story Ling](t.me/storyQi)
 ⭐ **Owner Repo :** [Ling](t.me/excute7)
-⭐ **Repo :** [HyperRobot](https://github.com/ramadhani892/RamPyro-Bot)
+⭐ **Repo :** [HyperRobot](https://github.com/Ling-ex/HyperPyro)
 ⭐ **Donasi :** [VIA LINK](https://trakteer.id/hyperqi)
 ⭐ **STRING :** [VIA WEB](https://replit.com/@dashezup/generate-pyrogram-session-string)
 
