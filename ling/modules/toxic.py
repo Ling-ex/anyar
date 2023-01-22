@@ -27,27 +27,27 @@ async def ngejamet(client: Client, message: Message):
         return await edit_or_reply(
             message, "**Jangan Coba Coba Roasting Pembuat Gua lah Kontol!**"
         )
-    xx = await edit_or_reply(message, "**WOII**")
+    ling = await edit_or_reply(message, "**WOII**")
     await asyncio.sleep(1.5)
-    await xx.edit("**WOI NGENTOT**")
+    await ling.edit("**WOI MANUSIA HINA**")
     await asyncio.sleep(1.5)
-    await xx.edit("**CUMA MAU BILANG**")
+    await ling.edit("**GUA CUMA MAU BILANG**")
     await asyncio.sleep(1.5)
-    await xx.edit("**GAUSAH SO ASIK**")
+    await ling.edit("**GAUSAH SO ASIK**")
     await asyncio.sleep(1.5)
-    await xx.edit("**LO ITU JELEK?**")
+    await ling.edit("**LO ITU JELEK HINA**")
     await asyncio.sleep(1.5)
-    await xx.edit("**GAUSAH REPLY**")
+    await ling.edit("**GAUSAH REPLY**")
     await asyncio.sleep(1.5)
-    await xx.edit("**LO BUKAN LEVEL GUE**")
+    await ling.edit("**CUIH NAJIS BANGET DI REPLAY ORG HINA**")
     await asyncio.sleep(1.5)
-    await xx.edit("**KALO GA SENENG YA PC KONTOL**")
+    await ling.edit("**NAPA GA SENENG? YA PC LAH KONTOL**")
     await asyncio.sleep(1.5)
-    await xx.edit("**BOCAH TOLOL**")
+    await ling.edit("**BOCAH TOLOL**")
     await asyncio.sleep(1.5)
-    await xx.edit("**MENTAL PENGEMIS**")
+    await ling.edit("**MENTAL KALENG KERUPUK**")
     await asyncio.sleep(1.5)
-    await xx.edit("**LEMBEK NGENTOT🥵**")
+    await ling.edit("**LEMBEK NGENTOT🥵**")
 
 
 @Client.on_message(
@@ -61,11 +61,11 @@ async def globalfake(client: Client, message: Message):
         return await edit_or_reply(
             message, "**Lo GaBisa Gban dia ngentod!!!**"
         )
-    xx = await edit_or_reply(message, f"Memulai Proses Global Banned [{user.first_name}](tg://user?id={user.id})")
+    ling = await edit_or_reply(message, f"Memulai Proses Global Banned [{user.first_name}](tg://user?id={user.id})")
     await asyncio.sleep(3)
-    await xx.edit("`Gbanning....`")
+    await ling.edit("`Gbanning🔄`")
     await asyncio.sleep(5)
-    await xx.edit(f"**\\\ Berhasil Gbanning //** \nFirst Name : [{user.first_name}](tg://user?id={user.id})\nReason : {reason}")
+    await ling.edit(f"**Berhasil Gbanning🌐** \nFirst Name : [{user.first_name}](tg://user?id={user.id})\nReason : {reason}")
     
 
 
@@ -80,11 +80,11 @@ async def fakegmute(client: Client, message: Message):
         return await edit_or_reply(
             message, "**Lo GaBisa Gmute dia ngentod!!!**"
         )
-    xx = await edit_or_reply(message, f"Memulai Proses Global mute [{user.first_name}](tg://user?id={user.id})")
+    ling = await edit_or_reply(message, f"Memulai Proses Global mute [{user.first_name}](tg://user?id={user.id})")
     await asyncio.sleep(3)
-    await xx.edit("`Memulai Proses Global mute....`")
+    await ling.edit("`Memulai Proses Global mute🔄`")
     await asyncio.sleep(5)
-    await xx.edit(f"**\\\ Berhasil Gmute //** \nFirst Name : [{user.first_name}](tg://user?id={user.id})\nReason : {reason}")
+    await ling.edit(f"**Berhasil Gmute🔇** \nFirst Name : [{user.first_name}](tg://user?id={user.id})\nReason : {reason}")
     
 
 @Client.on_message(filters.command("ywc", cmd) & filters.me)
@@ -93,7 +93,7 @@ async def ywc(client: Client, message: Message):
         message.delete(),
         client.send_message(
             message.chat.id,
-            "ok Kontol Sama - Sama",
+            "ok Puki Sama - Sama",
             reply_to_message_id=ReplyCheck(message),
         ),
     )
@@ -362,6 +362,30 @@ async def toxicskb(client: Client, message: Message):
     )
 
 
+@Client.on_message(filters.command("owner", cmd) & filters.me)
+async def owner(client: Client, message: Message):
+    user_id = await extract_user(message)
+    if user_id in DEVS:
+        return await edit_or_reply(
+            message, "**LU GA DI AJAK GOBLOK!**"
+        )
+    ling = await edit_or_reply(message, "**WOY!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**MINGGIR LO!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**IYA LO!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**MINGGIR!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**TU ADA OWNER GUA!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**JANGAN BERISIK LU EGO!!**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**SUNGKEM KEPADA LING**")
+    await asyncio.sleep(1.5)
+    await ling.edit("**🙇🙇🙇**")
+
+
 @Client.on_message(filters.command("virtual", cmd) & filters.me)
 async def toxicvirtual(client: Client, message: Message):
     user_id = await extract_user(message)
@@ -369,23 +393,23 @@ async def toxicvirtual(client: Client, message: Message):
         return await edit_or_reply(
             message, "**Jangan Coba Coba Roasting Pembuat Gua lah Kontol!**"
         )
-    xx = await edit_or_reply(message, "**OOOO**")
+    ling = await edit_or_reply(message, "**OOOO**")
     await asyncio.sleep(1.5)
-    await xx.edit("**INI YANG VIRTUAL**")
+    await ling.edit("**INI YANG VIRTUAL**")
     await asyncio.sleep(1.5)
-    await xx.edit("**YANG KATANYA SAYANG BANGET**")
+    await ling.edit("**YANG KATANYA SAYANG BANGET**")
     await asyncio.sleep(1.5)
-    await xx.edit("**TAPI TETEP AJA DI TINGGAL**")
+    await ling.edit("**TAPI TETEP AJA DI TINGGAL**")
     await asyncio.sleep(1.5)
-    await xx.edit("**NI INGET**")
+    await ling.edit("**NI INGET**")
     await asyncio.sleep(1.5)
-    await xx.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
+    await ling.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
     await asyncio.sleep(1.5)
-    await xx.edit("**APALAGI OMONGANNYA**")
+    await ling.edit("**APALAGI OMONGANNYA**")
     await asyncio.sleep(1.5)
-    await xx.edit("**BHAHAHAHA**")
+    await ling.edit("**BHAHAHAHA**")
     await asyncio.sleep(1.5)
-    await xx.edit("**KASIAN MANA MASIH MUDA**")
+    await ling.edit("**KASIAN MANA MASIH MUDA**")
 
 
 add_command_help(
@@ -407,6 +431,7 @@ add_command_help(
         ["cuih", "Ngeludahin keluarganya satu satu wkwk."],
         ["dih", "Ngeledek anak haram."],
         ["gcs", "Ngeledek gc sampah."],
+        ["virtual", "Ngeledek orang pacar virtual."]
     ],
 )
 
