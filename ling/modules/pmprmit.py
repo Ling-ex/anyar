@@ -27,8 +27,8 @@ DEF_UNAPPROVED_MSG = (
     "ꜱᴇʙᴇʟᴜᴍ ᴅɪ ᴋᴏɴꜰɪʀᴍᴀꜱɪ, ᴀᴛᴀᴜ ᴀɴᴅᴀ\n"
     f"ᴀᴋᴀɴ ᴏᴛᴏᴍᴀᴛɪꜱ ᴛᴇʀʙʟᴏᴋɪʀ.\n"
     f"➖➖➖➖➖➖➖➖➖➖\n"
-    "ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ☕ [↻˹zσɴкᴇʏ ᴅ ʟɪɴɢ˼](t.me/excute7)"
-), disable_web_page_preview=True
+    "ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ☕ @excute7"
+)
 
 
 @Client.on_message(
