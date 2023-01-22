@@ -12,6 +12,11 @@
       "description": "Ambil Heroku API KEY mu disini » https://dashboard.heroku.com/account",
       "required": false
     },
+"BOT_TOKEN": {
+      "description": "Masukan Bot Token Untuk Menghidupkan inline Bot",
+      "required": true
+    }
+  },
     "HEROKU_APP_NAME": {
       "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
       "required": false
