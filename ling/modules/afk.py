@@ -37,7 +37,7 @@ async def afk(client: Client, message: Message):
     else:
         set_afk(True, "")
         await message.edit(
-            "⭐ {} <b>Telah AFK</b> ⭐".format(
+            "{} <b>Telah AFK</b>".format(
                 mention_markdown(message.from_user.id, message.from_user.first_name)
             )
         )
