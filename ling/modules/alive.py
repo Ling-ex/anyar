@@ -27,9 +27,8 @@ from config import BOT_VER, CHANNEL
 from config import CMD_HANDLER as cmd
 from config import GROUP
 from ling import CMD_HELP, StartTime
-
-
 from .help import add_command_help
+
 
 modules = CMD_HELP
 alive_logo = (
