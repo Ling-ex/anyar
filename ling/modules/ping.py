@@ -137,3 +137,22 @@ async def ramping(client: Client, message: Message):
         f"ㅤ   Owner : {client.me.mention}" % (duration),
     )
         
+add_command_help(
+    "speedtest",
+    [
+        ["dc", "Untuk melihat DC Telegram anda."],
+        [
+            f"speedtest `atau` {cmd}speed",
+            "Untuk megetes Kecepatan Server anda.",
+        ],
+    ],
+)
+
+
+add_command_help(
+    "ping",
+    [
+        ["ping", "Untuk Menunjukkan Ping Bot Anda."],
+        ["rping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
+    ],
+)
