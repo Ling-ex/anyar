@@ -16,7 +16,6 @@
       "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
       "required": false
     },
-  },
   "addons": [
     {
       "plan": "heroku-postgresql"
