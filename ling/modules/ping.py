@@ -25,7 +25,7 @@ from ling.helpers.adminHelpers import DEVS
 from ling.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
 from config import GROUP, BRANCH as branch
-from ling import CMD_HELP, StartTime
+from ling import CMD_HELP, StartTime, app
 from .help import add_command_help
 
 modules = CMD_HELP
