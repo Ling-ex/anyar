@@ -14,10 +14,10 @@ from pyrogram import Client, filters
 from pyrogram.errors import MessageDeleteForbidden
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import Client as client
-from rams import CMD_HELP, app
-from rams.split.data import Data
-from rams.split.inline import cb_wrapper, paginate_help
-from rams import ids as users
+from ling import CMD_HELP, app
+from ling.split.data import Data
+from ling.split.inline import cb_wrapper, paginate_help
+from ling import ids as users
 from config import CMD_HANDLER as cmd
 
 @Client.on_callback_query()
@@ -70,16 +70,16 @@ async def _callbacks(_, callback_query: CallbackQuery):
 async def on_plug_in_cb(_, callback_query: CallbackQuery):
     modul_name = callback_query.matches[0].group(1)
     commands: dict = CMD_HELP[modul_name]
-    this_command = f"**Help For {str(modul_name).upper()}** 」──\n\n"
+    this_command = f"──「 **Help For {str(modul_name).upper()}** 」──\n\n"
     for x in commands:
         this_command += f"  •  **Command:** `{cmd}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
-    this_command += "© Geez | RAM"
+    this_command += "© Lɪɴɢ X Hʏᴘᴇʀ"
     bttn = [
         [
-           InlineKeyboardButton(text="•channel•", url="https://t.me/UserbotCh"),
-           InlineKeyboardButton(text="•support•", url="https://t.me/GeezRam"),
+           InlineKeyboardButton(text="•ᴄʜᴀɴɴᴇʟ•", url="https://t.me/storyQi"),
+           InlineKeyboardButton(text="•ꜱᴜᴘᴘᴏʀᴛ•", url="https://t.me/HyperSupportQ"),
         ],
-        [InlineKeyboardButton(text="Return", callback_data="reopen")],
+        [InlineKeyboardButton(text="«ʙᴀᴄᴋ»", callback_data="reopen")],
     ]
     reply_pop_up_alert = (
         this_command
