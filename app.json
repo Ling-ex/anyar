@@ -16,7 +16,7 @@
       "description": "Masukan Nama App heroku, Nama App yang paling pertama di isi (liat paling atas)",
       "required": false
     },
-"BOT_TOKEN": {
+    "BOT_TOKEN": {
       "description": "Masukan Bot Token Untuk Menghidupkan inline Bot",
       "required": true
     }
