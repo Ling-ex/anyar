@@ -87,18 +87,8 @@ async def pingme(client: Client, message: Message):
     await ling.edit("**▁ ▂ ▄ ▅ ▆**")
     await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
     await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ling.edit("**▁ ▂ ▄ ▅ **")
-    await ling.edit("**▁ ▂ ▄**")
-    await ling.edit("**▁ ▂**")
-    await ling.edit("**▁**")
-    await ling.edit("**▁ ▂**")
-    await ling.edit("**▁ ▂ ▄**")
-    await ling.edit("**▁ ▂ ▄ ▅**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await ling.edit("✨")
+    await asyncio.sleep(2.5)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ram.edit(
@@ -121,8 +111,8 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"**Hʏᴘᴇʀ-Uʙᴏᴛ**\n"
-        f"**Pɪɴɢ:** "
+        f"**Hʏᴘᴇʀ-Uʙᴏᴛ** 🏓\n"
+        f"**Pᴏɴɢ:** "
         f"`%sms` \n"
         f"**Uᴘᴛɪᴍᴇ:** "
         f"`{uptime}` \n"
@@ -139,13 +129,12 @@ async def ramping(client: Client, message: Message):
     await message.reply_text(
         text="\n"
         " Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ\n"
-        "   status : __Hyper__ \n"
-        "      dc: `5` \n"
-        f"ㅤ  ping bot:"
+        "   status : __Active__ \n"
+        f"ㅤ   ping bot:"
         f"`%sms` \n"
-        f"ㅤ  uptime:"
+        f"ㅤ   uptime:"
         f"`{uptime}` \n"
-        f"ㅤ  Owner : {client.me.mention}" % (duration),
+        f"ㅤ   Owner : {client.me.mention}" % (duration),
     )
         
 add_command_help(
