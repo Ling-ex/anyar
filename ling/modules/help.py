@@ -15,8 +15,9 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from ling.helpers.PyroHelpers import ReplyCheck
 from ling.helpers.utility import split_list
-from ling import app, CMD_HELP
-from ling.helpers.cmd import *
+from config import CMD_HANDLER as cdm
+from ling import CMD_HELP,app
+
 
 async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     xyz = (
@@ -26,14 +27,14 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
-@Client.on_message(filters.command(["help", "helpme"], cmd) & filters.me)
+@Client.on_message(filters.command(["help", "helpme"], cdm) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
     if len(cmd) > 1:
         help_arg = " ".join(cmd[1:])
-    elif not message.reply_to_message and len(cmd) == 1:
+    elif not message.reply_to_message and len(cdm) == 1:
         try:
             nice = await client.get_inline_bot_results(bot=bot_username, query="helper")
             await asyncio.gather(
@@ -56,7 +57,7 @@ async def module_help(client: Client, message: Message):
                 reply_to_message_id=ReplyCheck(message),
             )
             await xx.reply(
-                f"**Usage:** `{cmd}help broadcast` **To View Module Information**"
+                f"**Usage:** `{cdm}help broadcast` **To View Module Information**"
             )
             return
 
@@ -65,7 +66,7 @@ async def module_help(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `*{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cdm}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @storyQi"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
@@ -77,15 +78,15 @@ async def module_help(client: Client, message: Message):
             )
 
 
-@Client.on_message(filters.command(["plugins", "modules"], cmd) & filters.me)
+@Client.on_message(filters.command(["plugins", "modules"], cdm) & filters.me)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
     if len(cmd) > 1:
         help_arg = " ".join(cmd[1:])
-    elif message.reply_to_message and len(cmd) == 1:
+    elif message.reply_to_message and len(cdm) == 1:
         help_arg = message.reply_to_message.text
-    elif not message.reply_to_message and len(cmd) == 1:
+    elif not message.reply_to_message and len(cdm) == 1:
         ac = PrettyTable()
         ac.header = False
         ac.title = "HyperRobot Modules"
@@ -96,7 +97,7 @@ async def module_helper(client: Client, message: Message):
             message, f"```{str(ac)}```\n• @storyQi >< @HyperSupportQ •"
         )
         await message.reply(
-            f"**Usage**:`{cmd}help broadcast` **To View Module details**"
+            f"**Usage**:`{cdm}help broadcast` **To View Module details**"
         )
 
     if help_arg:
@@ -104,7 +105,7 @@ async def module_helper(client: Client, message: Message):
             commands: dict = CMD_HELP[help_arg]
             this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
             for x in commands:
-                this_command += f"  •  **Command:** `*{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
+                this_command += f"  •  **Command:** `{cdm}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @storyQi"
             await edit_or_reply(
                 message, this_command, parse_mode=enums.ParseMode.MARKDOWN
