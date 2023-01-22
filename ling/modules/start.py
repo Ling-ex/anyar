@@ -151,7 +151,7 @@ add_command_help(
     [
         ["alive", "Mencoba Apakah Bot dalam keadaan menyala atau mati."],
         ["repo", "Memunculkan Repo."],
-        ["creator", "Memberitahukan Pembuat Userbot RamPyro-Bot."],
+        ["creator", "Memberitahukan Pembuat Userbot HyperRobot."],
         ["id", "Balas Pesan Seseorang dan dapatkan Id nya."],
         [f"up `or` {cmd}uptime", "Check bot's current uptime."],
     ],
