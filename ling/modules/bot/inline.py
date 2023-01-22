@@ -88,7 +88,7 @@ async def alive_function(message: Message, answers):
 
 
 async def help_function(answers):
-    bttn = paginate_help(0, client: Client, CMD_HELP, "helpme")
+    bttn = paginate_help(0, CMD_HELP, "helpme")
     answers.append(
         InlineQueryResultArticle(
             title="Help Article!",
