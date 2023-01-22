@@ -222,7 +222,7 @@ add_command_help(
     "webshot",
     [
         [
-            f"webshot <link> `atau` {cmd}ss <link>",
+            f"webshot <link> `atau` .ss <link>",
             "Untuk Mengscreenshot halaman web yang diberikan.",
         ],
     ],
@@ -233,7 +233,7 @@ add_command_help(
     "sosmed",
     [
         [
-            f"ig <link> & {cmd}pint <link>",
+            f"ig <link> & .pint <link>",
             "Untuk Mendownload Media Dari Instagram & Pinteres",
         ],
         [    f"sosmed <link>",
