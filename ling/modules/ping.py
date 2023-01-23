@@ -130,7 +130,7 @@ async def module_ping(client: Client, message: Message):
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", cdm) & filters.me)
+@Client.on_message(filters.command("ping", cmd) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
