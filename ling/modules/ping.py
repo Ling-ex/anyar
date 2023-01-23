@@ -14,7 +14,6 @@ from datetime import datetime
 import os
 import shlex
 import textwrap
-from typing import Tuple
 import asyncio
 import speedtest
 
