@@ -71,7 +71,7 @@ async def speed_test(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dc", cdm) & filters.me)
+@Client.on_message(filters.command("dc", cmd) & filters.me)
 async def nearest_dc(client: Client, message: Message):
     dc = await client.send(functions.help.GetNearestDc())
     await edit_or_reply(
