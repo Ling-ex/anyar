@@ -227,7 +227,7 @@ async def updaterman(client: Client, message: Message):
     await bash(to_exc)
     await asyncio.sleep(7)
     verification = ""
-    REPO_ = repo.remotes.origin.url.split("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")[0]  # main git repository
+    REPO_ = repo.remotes.origin.url.split(".git")[0]  # main git repository
     for checks in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
         verification = str(checks.count())
     if verification == "":
