@@ -22,8 +22,13 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
 from pyrogram.enums import ParseMode
-from pyrogram.types import InlineKeyboardButton
-from pyrogram.types import InlineKeyboardMarkup
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    Message,
+)
 from ling.helpers.basic import edit_or_reply
 from ling.helpers.constants import WWW
 from ling.helpers.PyroHelpers import SpeedConvert
@@ -98,7 +103,7 @@ async def pingme(client: Client, message: Message):
     await asyncio.sleep(2.5)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await ram.edit(
+    await ling.edit(
         f"**ʜʏᴘᴇʀ-ᴜʙᴏᴛ⌛**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
@@ -120,11 +125,10 @@ async def module_ping(client: Client, message: Message):
             await asyncio.gather(
                 message.reply_text(),
                 client.send_inline_bot_result(
-                    message.chat.id, nice.query_id, nice.results[0].id
-                ),
+                    message.chat.id, nice.query_id, nice.results[0].id),
             )
-        except BaseException as e:
-            print(f"{e}")
+        except BaseException:
+            pass
 
 
 @Client.on_message(
@@ -138,10 +142,10 @@ async def kping(client: Client, message: Message):
     duration = (end - start).microseconds / 1000
     await message.reply_text(
         f"**Hʏᴘᴇʀ-Uʙᴏᴛ** 🏓\n"
-        f"**• Pᴏɴɢ-** "
-        f" `%sms` \n"
-        f"**• Uᴘᴛɪᴍᴇ-** "
-        f" `{uptime}` \n"
+        f"**• Pᴏɴɢ -** "
+        f" `%sms` \n "
+        f"**• Uᴘᴛɪᴍᴇ -** "
+        f" `{uptime}` \n "
     )
         
 add_command_help(
