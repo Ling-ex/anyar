@@ -86,6 +86,31 @@ async def alive_function(message: Message, answers):
     )
     return answers
 
+async def ping_function(message: Message, answers):
+    start = datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
+    msg = (
+        f"<b>Hʏᴘᴇʀ-Uʙᴏᴛ 🏓</b>\n\n"
+        f"Pɪɴɢᴇʀ :</b> <code>{duration}ms</code>\n"
+        f"Uᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>"
+    )
+    answers.append(
+        InlineQueryResultArticle(
+            title="ping",
+            description="Check Bot's Stats",
+            thumb_url="https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("Support", url="t.me/HyperSupportQ")]]
+            ),
+        )
+    )
+    return answers
+
 
 async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
@@ -117,6 +142,9 @@ async def inline_query_handler(client: Client, query):
             await client.answer_inline_query(query.id, results=answerss, cache_time=10)
         elif string_given.startswith("helper"):
             answers = await help_function(answers)
+            await client.answer_inline_query(query.id, results=answers, cache_time=0)
+        elif string_given.startswith("ping"):
+            answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
         e = traceback.format_exc()
