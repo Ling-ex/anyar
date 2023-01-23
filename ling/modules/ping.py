@@ -144,7 +144,7 @@ async def kping(client: Client, message: Message):
         f"**• Pᴏɴɢ -** "
         f" `%sms` \n "
         f"**• Uᴘᴛɪᴍᴇ -** "
-        f" `{uptime}` \n " % (duration))
+        f" `{uptime}` \n " % (duration)
     )
         
 add_command_help(
