@@ -1,6 +1,6 @@
-# RamPyro-Bot Telegram
+# HyperRobot Telegram
 
-RamPyro-Bot is a modular telegram user that runs on Python3 with a pyrogram library.
+HyperRobot is a modular telegram user that runs on Python3 with a pyrogram library.
 
 I made this repository to have fun while helping you manage the group efficiently and to help reduce boredom when using telegram.
 
@@ -28,12 +28,12 @@ When you have installed this userbot, it means you are ready with the risks.
 
 ## VPS 
 ```
-- git clone https://github.com/izzy-adeeva/RamPyro-bot
-- cd RamPyro-bot
+- git clone https://github.com/Ling-ex/Ling-Ubot
+- cd Ling-Ubot
 - pip install -U -r requirements.txt
 - cp sample-config.env .env
 - nano .env (isi vars)(save)
-- screen -S RamPyro-bot
+- screen -S Ling-Ubot
 - bash start
 - seduh kopi, bakar roko, nyender
 
@@ -50,6 +50,7 @@ When you have installed this userbot, it means you are ready with the risks.
 -  [Risman](https://github.com/mrismanaziz) for [PyroMan-Userbot](https://github.com/mrismanaziz/PyroMan-Userbot)
 -  [Arman](https://github.com/ArmanGG01) for [PyroKar-Userbot](https://github.com/ArmanGG01/PyroKar-Userbot)
 -  [Rama](https://github.com/ramadhani892) for [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)
+-  [Ling](https://github.com/Ling-ex) for [HyperRobot](https://github.com/Ling-ex/Ling-Ubot)
 
 #### Special Thanks To [Everyone](https://github.com/mrismanaziz/PyroMan-Userbot/graphs/contributors) Who Has Helped Make This Userbot Awesome!
 -  [TeamDerUntergang](https://github.com/TeamDerUntergang/Telegram-SedenUserBot) : SedenUserBot
