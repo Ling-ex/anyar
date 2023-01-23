@@ -20,7 +20,7 @@ from ling import *
 
 from .help import add_command_help
 
-absen = [
+kopi = [
     "**Hadir bang** 😁",
     "**Hadir kak** 😉",
     "**Hadir dong** 😁",
@@ -32,7 +32,7 @@ absen = [
 
 @Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
 async def absen(client: Client, message: Message):
-    await message.reply("**Mwaaah 🥵**")
+    await message.reply_text(random.choice(kopi))
 
 
 @Client.on_message(filters.command("repo", cmd) & filters.me)
@@ -150,7 +150,7 @@ add_command_help(
     "start",
     [
         ["alive", "Mencoba Apakah Bot dalam keadaan menyala atau mati."],
-        ["repo", "Memunculkan Repo."],
+        ["repo", "Memunculkan Repo. Masi privasi gays. Masi ada bug"],
         ["creator", "Memberitahukan Pembuat Userbot HyperRobot."],
         ["id", "Balas Pesan Seseorang dan dapatkan Id nya."],
         [f"up `or` {cmd}uptime", "Check bot's current uptime."],
