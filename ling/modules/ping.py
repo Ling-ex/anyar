@@ -31,8 +31,10 @@ from pyrogram.types import (
 )
 from ling.helpers.basic import edit_or_reply
 from ling.helpers.constants import WWW
+from ling import app
 from ling.helpers.PyroHelpers import SpeedConvert
 from ling.utils.tools import get_readable_time
+from ling.modules.bot.inline import get_readable_time
 from ling.helpers.adminHelpers import DEVS
 from ling.helpers.PyroHelpers import ReplyCheck
 from config import BOT_VER, CMD_HANDLER as cmd
