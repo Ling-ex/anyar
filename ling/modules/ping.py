@@ -8,9 +8,16 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import time
+import traceback
+from sys import version as pyver
 from datetime import datetime
+import os
+import shlex
+import textwrap
+from typing import Tuple
 import asyncio
 import speedtest
+
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import Message
@@ -64,7 +71,7 @@ async def speed_test(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("dc", cmd) & filters.me)
+@Client.on_message(filters.command("dc", cdm) & filters.me)
 async def nearest_dc(client: Client, message: Message):
     dc = await client.send(functions.help.GetNearestDc())
     await edit_or_reply(
@@ -104,7 +111,7 @@ async def pingme(client: Client, message: Message):
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", cmd) & filters.me)
+@Client.on_message(filters.command("ping", cdm) & filters.me)
 async def kping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -120,7 +127,7 @@ async def kping(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("ling", cmd) & filters.me)
+@Client.on_message(filters.command("ling", cdm) & filters.me)
 async def ramping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -134,7 +141,6 @@ async def ramping(client: Client, message: Message):
         f"`%sms` \n"
         f"ㅤ   uptime:"
         f"`{uptime}` \n"
-        f"ㅤ   Owner : {client.me.mention}" % (duration),
     )
         
 add_command_help(
