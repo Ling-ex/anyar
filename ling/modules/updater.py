@@ -26,7 +26,7 @@ from ling.helpers.adminHelpers import DEVS
 from ling.helpers.basic import edit_or_reply
 from ling.helpers.misc import HAPP, XCB
 from ling.helpers.tools import get_arg
-from ling.utils.misc import restart
+from ling.split.misc import restart
 from ling.utils.pastebin import PasteBin
 from ling.utils.tools import bash
 from config import BRANCH
