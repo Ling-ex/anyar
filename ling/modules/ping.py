@@ -138,10 +138,10 @@ async def kping(client: Client, message: Message):
     duration = (end - start).microseconds / 1000
     await message.reply_text(
         f"**Hʏᴘᴇʀ-Uʙᴏᴛ** 🏓\n"
-        f"• **Pᴏɴɢ:** "
-        f"`%sms` \n"
-        f"• **Uᴘᴛɪᴍᴇ:** "
-        f"`{uptime}` \n"
+        f"**• Pᴏɴɢ-** "
+        f" `%sms` \n"
+        f"**• Uᴘᴛɪᴍᴇ-** "
+        f" `{uptime}` \n"
     )
         
 add_command_help(
