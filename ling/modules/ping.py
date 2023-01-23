@@ -107,6 +107,25 @@ async def pingme(client: Client, message: Message):
         f"** ➠  Oᴡɴᴇʀ   :** {client.me.mention}" % (duration)
     )
 
+@Client.on_message(filters.command("ling", cmd) & filters.me)
+async def module_ping(client: Client, message: Message):
+    cdm = message.command
+    help_arg = ""
+    bot_username = (await app.get_me()).username
+    if len(cdm) > 1:
+        help_arg = " ".join(cdm[1:])
+    elif not message.reply_to_message and len(cdm) == 1:
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="ling")
+            await asyncio.gather(
+                message.reply_text(),
+                client.send_inline_bot_result(
+                    message.chat.id, nice.query_id, nice.results[0].id
+                ),
+            )
+        except BaseException as e:
+            print(f"{e}")
+
 
 @Client.on_message(
     filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
@@ -119,27 +138,9 @@ async def kping(client: Client, message: Message):
     duration = (end - start).microseconds / 1000
     await message.reply_text(
         f"**Hʏᴘᴇʀ-Uʙᴏᴛ** 🏓\n"
-        f"**Pᴏɴɢ:** "
+        f"• **Pᴏɴɢ:** "
         f"`%sms` \n"
-        f"**Uᴘᴛɪᴍᴇ:** "
-        f"`{uptime}` \n"
-        f"**Oᴡɴᴇʀ:** {client.me.mention}" % (duration)
-    )
-
-
-@Client.on_message(filters.command("ling", cdm) & filters.me)
-async def ramping(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await message.reply_text(
-        text="\n"
-        " Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ\n"
-        "   status : __Active__ \n"
-        f"ㅤ   ping bot:"
-        f"`%sms` \n"
-        f"ㅤ   uptime:"
+        f"• **Uᴘᴛɪᴍᴇ:** "
         f"`{uptime}` \n"
     )
         
