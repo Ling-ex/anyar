@@ -8,6 +8,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import time
+import random
 import traceback
 from sys import version as pyver
 from datetime import datetime
@@ -44,6 +45,19 @@ from .help import add_command_help
 
 modules = CMD_HELP
 
+kopi = [
+    "**Hadir bang** 😁",
+    "**Hadir kak** 😉",
+    "**Hadir dong** 😁",
+    "**Hadir ganteng** 🥵",
+    "**Hadir bro** 😎",
+    "**Hadir kak maap telat** 🥺",
+]
+
+
+@Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
+async def absen(client: Client, message: Message):
+    await message.reply_text(random.choice(kopi))
 
 
 @Client.on_message(filters.command(["speed", "speedtest"], cmd) & filters.me)
