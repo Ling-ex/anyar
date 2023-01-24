@@ -20,20 +20,6 @@ from ling import *
 
 from .help import add_command_help
 
-kopi = [
-    "**Hadir bang** 😁",
-    "**Hadir kak** 😉",
-    "**Hadir dong** 😁",
-    "**Hadir ganteng** 🥵",
-    "**Hadir bro** 😎",
-    "**Hadir kak maap telat** 🥺",
-]
-
-
-@Client.on_message(filters.command("absen", ["."]) & filters.user(DEVS) & ~filters.me)
-async def absen(client: Client, message: Message):
-    await message.reply_text(random.choice(kopi))
-
 
 @Client.on_message(filters.command("repo", cmd) & filters.me)
 async def repo(_, message: Message):
