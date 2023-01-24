@@ -51,7 +51,7 @@ async def alive(client: Client, message: Message):
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
         f"{emoji} <b>ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
         f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
-        f"➠ Mʏ Mᴀꜱᴛᴇʀ : (tg://user?id={client.me.id})"
+        f"➠ Mʏ Mᴀꜱᴛᴇʀ : [•Cʟɪᴄᴋ•](tg://user?id={client.me.id})\n\n"
         f"    **[Sᴜᴘᴘᴏʀᴛ](https://t.me/{GROUP})** | **[Cʜᴀɴɴᴇʟ](https://t.me/{CHANNEL})** | **[Oᴡɴᴇʀ](t.me/excute7)**"
     )
     try:
