@@ -89,7 +89,7 @@ async def nearest_dc(client: Client, message: Message):
 @Client.on_message(
     filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("rping", cmd) & filters.me)
+@Client.on_message(filters.command("hping", cmd) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
@@ -165,6 +165,6 @@ add_command_help(
     "ping",
     [
         ["ping", "Untuk Menunjukkan Ping Bot Anda."],
-        ["rping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
+        ["hping", "Untuk Menunjukkan Ping Bot Anda ( Beda animasi doang )."],
     ],
 )
