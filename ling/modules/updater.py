@@ -39,7 +39,6 @@ if GIT_TOKEN:
     GIT_USERNAME = REPO_URL.split("com/")[1].split("/")[0]
     TEMP_REPO = REPO_URL.split("https://")[1]
     UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
-if GIT_TOKEN:
     UPSTREAM_REPO_URL = UPSTREAM_REPO
 else:
     UPSTREAM_REPO_URL = REPO_URL
@@ -49,23 +48,8 @@ requirements_path = path.join(
 )
 
 
-def restart():
-    os.execvp(sys.executable, [sys.executable, "-m", "ling"])
-
-
 async def is_heroku():
     return "heroku" in socket.getfqdn()
-
-async def bash(cmd):
-    process = await asyncio.create_subprocess_shell(
-        cmd,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
-    )
-    stdout, stderr = await process.communicate()
-    err = stderr.decode().strip()
-    out = stdout.decode().strip()
-    return out, err
 
 
 async def gen_chlog(repo, diff):
