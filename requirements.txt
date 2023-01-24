@@ -9,6 +9,7 @@ googlesearch-python== 1.0.1
 gpytranslate
 gtts
 heroku3
+httpx[http2]
 lottie
 motor
 prettytable
