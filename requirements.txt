@@ -5,6 +5,7 @@ asyncio
 bs4
 ffmpeg
 gitpython
+git+https://github.com/Itz-fork/py-trans.git
 googlesearch-python== 1.0.1
 gpytranslate
 gtts
