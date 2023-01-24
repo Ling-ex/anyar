@@ -14,8 +14,6 @@ import os
 import json
 import random
 
-from .help from add_command_help
-
 @ling.on_message(filters.command("cask", cmd) & filters.user(DEVS) & ~filters.me)
 @ling.on_message(filters.command("ask", cmd) & filters.me)
 async def openai(client: Client, message: Message):
