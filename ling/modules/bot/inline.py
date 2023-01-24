@@ -94,7 +94,7 @@ async def ping_function(message: Message, answers):
     duration = (end - start).microseconds / 1000
     msg = (
         f"<b>Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ</b>\n"
-        "  Sᴛᴀᴛᴜꜱ » 𝘚𝘶𝘱𝘦𝘳 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
+        "  Sᴛᴀᴛᴜꜱ » 𝘗𝘦𝘳𝘵𝘢𝘮𝘢𝘹 \n"
         f"      Pɪɴɢᴇʀ ›</b> <code>{duration}ms</code> \n"
         f"      Uᴘᴛɪᴍᴇ ›</b> <code>{uptime}</code> \n"
         f"      Pʟᴜɢɪɴꜱ ›</b> <code>{len(CMD_HELP)} Modules</code> \n"
