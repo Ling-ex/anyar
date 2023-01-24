@@ -97,7 +97,6 @@ async def ping_function(message: Message, answers):
         "  Sᴛᴀᴛᴜꜱ » 𝘚𝘶𝘱𝘦𝘳 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
         f"    Pɪɴɢᴇʀ ›</b> <code>{duration}ms</code> \n"
         f"    Uᴘᴛɪᴍᴇ ›</b> <code>{uptime}</code> \n"
-        f"ㅤ ㅤMᴏᴅᴜʟᴇꜱ ›</b> <code>{len(modules)}</code> \n"
         f"ㅤㅤ Vᴇʀꜱɪᴏɴ › {BOT_VER} \n"
     )
     answers.append(
