@@ -95,12 +95,12 @@ async def ping_function(message: Message, answers):
     msg = (
         f"<b>Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ</b>\n"
         "  Sᴛᴀᴛᴜꜱ » 𝘚𝘶𝘱𝘦𝘳 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
-        f"    Pɪɴɢᴇʀ ›</b> <code>{duration}ms</code> \n"
-        f"    Uᴘᴛɪᴍᴇ ›</b> <code>{uptime}</code> \n"
-        f"    Bᴏᴛ Vᴇʀꜱɪᴏɴ › <code>{BOT_VER}</code> \n"
-        f"    Pʟᴜɢɪɴꜱ ›</b> <code>{len(CMD_HELP)} Modules</code> \n"
-        f"    Pʏᴛʜᴏɴ Vᴇʀꜱɪᴏɴ ›</b> <code>{pyver.split()[0]}</code> \n"
-        f"    Pʏʀᴏɢʀᴀᴍ Vᴇʀꜱɪᴏɴ ›</b> <code>{pyrover}</code> \n"
+        f"      Pɪɴɢᴇʀ ›</b> <code>{duration}ms</code> \n"
+        f"      Uᴘᴛɪᴍᴇ ›</b> <code>{uptime}</code> \n"
+        f"      Pʟᴜɢɪɴꜱ ›</b> <code>{len(CMD_HELP)} Modules</code> \n"
+        f"      Bᴏᴛ Vᴇʀꜱɪᴏɴ › <code>{BOT_VER}</code> \n"
+        f"      Pʏᴛʜᴏɴ Vᴇʀꜱɪᴏɴ ›</b> <code>{pyver.split()[0]}</code> \n"
+        f"      Pʏʀᴏɢʀᴀᴍ Vᴇʀꜱɪᴏɴ ›</b> <code>{pyrover}</code> \n"
     )
     answers.append(
         InlineQueryResultArticle(
