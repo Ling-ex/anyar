@@ -39,6 +39,7 @@ if GIT_TOKEN:
     GIT_USERNAME = REPO_URL.split("com/")[1].split("/")[0]
     TEMP_REPO = REPO_URL.split("https://")[1]
     UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
+if GIT_TOKEN:
     UPSTREAM_REPO_URL = UPSTREAM_REPO
 else:
     UPSTREAM_REPO_URL = REPO_URL
@@ -48,8 +49,23 @@ requirements_path = path.join(
 )
 
 
+def restart():
+    os.execvp(sys.executable, [sys.executable, "-m", "ling"])
+
+
 async def is_heroku():
     return "heroku" in socket.getfqdn()
+
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
 
 
 async def gen_chlog(repo, diff):
@@ -77,11 +93,11 @@ async def updateme_requirements():
 
 
 @Client.on_message(
-    filters.command("diupdate", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("allupdate", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("apdet", cmd) & filters.me)
+@Client.on_message(filters.command("update", cmd) & filters.me)
 async def upstream(client: Client, message: Message):
-    status = await edit_or_reply(message, "`Gua Cek dulu brok, Sabar...`")
+    status = await edit_or_reply(message, "`Proses Update... Mohon tunggu sebentar...`")
     conf = get_arg(message)
     off_repo = UPSTREAM_REPO_URL
     try:
@@ -99,7 +115,7 @@ async def upstream(client: Client, message: Message):
         repo.__del__()
         return
     except InvalidGitRepositoryError:
-        if conf != "dulu":
+        if conf != "deploy":
             pass
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -124,7 +140,7 @@ async def upstream(client: Client, message: Message):
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-    if "dulu" not in conf:
+    if "deploy" not in conf:
         if changelog:
             changelog_str = f"**Tersedia Pembaruan Untuk Branch [{ac_br}]:\n\nCHANGELOG:**\n\n`{changelog}`"
             if len(changelog_str) > 4096:
@@ -135,13 +151,13 @@ async def upstream(client: Client, message: Message):
                 await client.send_document(
                     message.chat.id,
                     "output.txt",
-                    caption=f"**Ketik** `{cmd}apdet dulu` **Untuk Mengupdate Userbot.**",
+                    caption=f"**Ketik** `{cmd}update deploy` **Untuk Mengupdate Userbot.**",
                     reply_to_message_id=status.id,
                 )
                 remove("output.txt")
             else:
                 return await status.edit(
-                    f"{changelog_str}\n**Ketik** `{cmd}apdet dulu` **Untuk Mengupdate Userbot.**",
+                    f"{changelog_str}\n**Ketik** `{cmd}update deploy` **Untuk Mengupdate Userbot.**",
                     disable_web_page_preview=True,
                 )
         else:
@@ -269,7 +285,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["apdet", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
-        ["apdet dulu", "Untuk mengupdate userbot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
+        ["update deploy", "Untuk mengupdate userbot."],
     ],
 )
