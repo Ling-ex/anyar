@@ -15,7 +15,7 @@ from pyrogram.types import Message
 from requests import get
 from ling.helpers.adminHelpers import DEVS
 from ling.helpers.basic import edit_or_reply
-from ling.helpers.misc import HAPP, in_heroku
+from ling.split.misc import HAPP, in_heroku
 from ling.helpers.tools import get_arg
 from ling.utils.misc import restart
 from config import BLACKLIST_GCAST
