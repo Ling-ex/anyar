@@ -17,8 +17,12 @@
       "required": false
     },
     "BOT_TOKEN": {
-      "description": "Masukan Bot Token Untuk Menghidupkan inline Bot",
+      "description": "Buat Bot Di @botfather Masukan Bot Token Untuk Menghidupkan inline Bot",
       "required": true
+    },
+    "OPENAI__API_KEY": {
+      "description": "Masukan ApiKey Jika Ingin Menghidupkan OpenAi https://beta.openai.com",
+      "required": false
     }
   },
     "HEROKU_APP_NAME": {
