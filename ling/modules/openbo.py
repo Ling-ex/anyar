@@ -38,4 +38,4 @@ async def openai(client: Client, message: Message):
     except MessageNotModified:
         pass
     except Exception:
-        await msg.edit("**Terjadi Kesalahan!!**")
+        await msg.edit("**Terjadi Kesalahan!!\nAnda Belum Memasukan OPENAI_API_KEY**")
