@@ -8,12 +8,13 @@ from ling.helpers.adminHelpers import DEVS
 from config import OPENAI_API_KEY, BLACKLIST_GCAST, CMD_HANDLER as cmd
 from ling.utils.misc import *
 from ling.utils.tools import *
-from .help from add_command_help
 
 import requests
 import os
 import json
 import random
+
+from .help from add_command_help
 
 @ling.on_message(filters.command("cask", cmd) & filters.user(DEVS) & ~filters.me)
 @ling.on_message(filters.command("ask", cmd) & filters.me)
