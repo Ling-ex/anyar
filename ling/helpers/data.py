@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, WebAppInfo
 class Data:
 
     text_help_menu = (
-        "**Command List & Help**\n**Prefix: . ,, - ? ^**"
+        "───「 **Help For HyperRobot** 」──"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
