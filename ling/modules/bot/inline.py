@@ -15,6 +15,7 @@ from datetime import datetime
 import os
 import shlex
 import textwrap
+from typing import Tuple
 import asyncio 
 
 from pyrogram import Client
@@ -29,7 +30,7 @@ from pyrogram.types import (
 )
 from ling.helpers.data import Data
 from ling.helpers.inline import inline_wrapper, paginate_help
-from config import BOT_VER
+from config import BOT_VER, BRANCH as branch
 from ling import CMD_HELP, StartTime, app
 
 
