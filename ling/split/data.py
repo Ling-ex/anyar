@@ -4,7 +4,7 @@ from config import CMD_HANDLER as cmd
 class Data:
 
     text_help_menu = (
-        f"** ──「 Help for HyperRobot 」──\n Prefix:{cmd}**"
+        f"** ──「 Help for HyperRobot 」──\n Prefix:. **"
         .replace(",", "")
         .replace("[", "")
         .replace("]", "")
