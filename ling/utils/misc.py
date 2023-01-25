@@ -1,12 +1,3 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-#
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import socket
 from asyncio import get_running_loop
 from functools import partial
@@ -18,7 +9,6 @@ from time import time
 from pyrogram import Client, enums
 
 admins_in_chat = {}
-
 
 def _netcat(host, port, content):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -47,13 +37,6 @@ async def paste_queue(content):
         None, partial(_netcat, "ezup.dev", 9999, content)
     )
     return link
-
-
-
-
-def restart():
-    os.execvp(sys.executable, [sys.executable, "-m", "ling"])
-
 
 async def list_admins(client: Client, chat_id: int):
     global admins_in_chat
@@ -156,3 +139,4 @@ async def extract_args(message, markdown=True):
 
 async def extract_args_arr(message, markdown=True):
     return extract_args(message, markdown).split()
+
