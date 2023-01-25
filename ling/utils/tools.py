@@ -32,6 +32,17 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
+
 def humanbytes(size):
     """Convert Bytes To Bytes So That Human Can Read It"""
     if not size:
