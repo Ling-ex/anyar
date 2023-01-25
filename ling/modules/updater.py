@@ -150,7 +150,7 @@ async def restart_bot(_, message: Message):
 
 
 @Client.on_message(
-    filters.command(["mati", "modar"], cmds) & filters.user(DEVS) & ~filters.me)
+    filters.command(["mati", "modar"], cmd) & filters.user(DEVS) & ~filters.me)
 async def shutdown_bot(client: Client, message: Message):
     if BOTLOG_CHATID:
         await client.send_message(
