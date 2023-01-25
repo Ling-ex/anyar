@@ -133,7 +133,7 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
         
-@Client.on_message(filters.command("rest", cmd) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("restart", cmd) & filters.user(DEVS) & ~filters.me)
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply(" `Restarting bot...`")
@@ -150,7 +150,7 @@ async def restart_bot(_, message: Message):
 
 
 @Client.on_message(
-    filters.command(["mati", "modar"], cmd) & filters.user(DEVS) & ~filters.me)
+    filters.command(["shotdown", "off"], cmd) & filters.user(DEVS) & ~filters.me)
 async def shutdown_bot(client: Client, message: Message):
     if BOTLOG_CHATID:
         await client.send_message(
@@ -350,10 +350,32 @@ async def updatees(client: Client, message: Message):
         exit()
 
 
+@Client.on_message(filters.command("logs", cmd) & filters.me)
+async def logs_ubot(client: Client, message: Message):
+    if HAPP is None:
+        return await edit_or_reply(
+            message,
+            "Pastikan `HEROKU_API_KEY` dan `HEROKU_APP_NAME` anda dikonfigurasi dengan benar di config vars heroku",
+        )
+    Man = await edit_or_reply(message, "**Sedang Mengambil Logs Heroku**")
+    with open("Logs-Heroku.txt", "w") as log:
+        log.write(HAPP.get_log())
+    await client.send_document(
+        message.chat.id,
+        "Logs-Heroku.txt",
+        thumb="ling/split/Ling.jpg",
+        caption="**Ini Logs Heroku Hyper**",
+    )
+    await Man.delete()
+    remove("Logs-Heroku.txt")
+
+
 add_command_help(
     "update",
     [
         ["update", "Untuk melihat list pembaruan terbaru dari HyperRobot."],
         ["update deploy", "Untuk mengupdate userbot."],
+        ["restart", "Untuk merestart Userbot."],
+        ["shotdown", "Untuk Mematikan Userbot."],
     ],
 )
