@@ -133,7 +133,7 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
         
-@Client.on_message(filters.command("restart", cmd) & filters.user(DEVS) & ~filters.me)
+@Client.on_message(filters.command("rest", cmd) & filters.user(DEVS) & ~filters.me)
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply(" `Restarting bot...`")
@@ -150,7 +150,7 @@ async def restart_bot(_, message: Message):
 
 
 @Client.on_message(
-    filters.command(["shutdown", "off"], cmds) & filters.user(DEVS) & ~filters.me)
+    filters.command(["mati", "modar"], cmds) & filters.user(DEVS) & ~filters.me)
 async def shutdown_bot(client: Client, message: Message):
     if BOTLOG_CHATID:
         await client.send_message(
@@ -348,3 +348,12 @@ async def updatees(client: Client, message: Message):
         await bash("pip3 install -r requirements.txt")
         restart()
         exit()
+
+
+add_command_help(
+    "update",
+    [
+        ["update", "Untuk melihat list pembaruan terbaru dari HyperRobot."],
+        ["update deploy", "Untuk mengupdate userbot."],
+    ],
+)
