@@ -21,11 +21,9 @@ from ling.helpers.basic import edit_or_reply
 from ling.helpers.PyroHelpers import ReplyCheck
 from ling.helpers.SQL.globals import gvarstatus
 from ling.helpers.tools import convert_to_image
-from ling.utils import get_readable_time
-from ling.utils.misc import restart
-from config import BOT_VER, CHANNEL
-from config import CMD_HANDLER as cmd
-from config import GROUP
+from ling.modules.bot.inline import get_readable_time
+from .updater import restart
+from config import *
 from ling import CMD_HELP, StartTime
 from .help import add_command_help
 
