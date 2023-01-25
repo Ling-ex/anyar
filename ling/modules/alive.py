@@ -22,6 +22,7 @@ from ling.helpers.PyroHelpers import ReplyCheck
 from ling.helpers.SQL.globals import gvarstatus
 from ling.helpers.tools import convert_to_image
 from ling.modules.bot.inline import get_readable_time
+from config import CMD_HANDLER as cmd
 from .updater import restart
 from config import *
 from ling import CMD_HELP, StartTime
