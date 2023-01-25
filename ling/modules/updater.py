@@ -25,6 +25,7 @@ from pyrogram.types import Message
 from ling import *
 from ling.helpers import *
 from ling.utils import *
+from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, REPO_URL, BRANCH
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
