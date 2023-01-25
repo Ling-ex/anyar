@@ -28,7 +28,7 @@ from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
 from ling.helpers.adminHelpers import DEVS
 from ling.helpers.basic import edit_or_reply
-from ling.helpers.misc import HAPP, XCB
+from ling.split.misc import HAPP, XCB
 from ling.helpers.tools import get_arg
 from ling.utils.misc import restart
 from ling.utils.pastebin import PasteBin
