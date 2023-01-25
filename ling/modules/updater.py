@@ -1,20 +1,20 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-#
-# Ported by @mrismanaziz
-# FROM PyroMan-Userbot < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# t.me/Lunatic0de & t.me/SharingUserbot
-#
-
 import asyncio
 import socket
 import sys
+import os
+from re import sub
+from time import time
+import aiohttp
+import requests
+import asyncio
+from os import getenv
+import shlex
+import textwrap
+from typing import Tuple
+
+from PIL import Image, ImageDraw, ImageFont
+
+from pyrogram import enums
 from datetime import datetime
 from os import environ, execle, path, remove
 
@@ -22,35 +22,91 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
-from config import BRANCH
-from config import CMD_HANDLER as cmd
-from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from ling.helpers.adminHelpers import DEVS
-from ling.helpers.basic import edit_or_reply
-from ling.split.misc import HAPP, XCB
-from ling.helpers.tools import get_arg
-from ling.utils.misc import restart
-from ling.utils.pastebin import PasteBin
-from ling.utils.tools import bash
-
+from ling import *
+from ling.helper import *
+from ling.utils import *
+from config import GIT_TOKEN, REPO_URL, BRANCH
+HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
+from ling import *
 from .help import add_command_help
+HAPP = None
+
+
+XCB = [
+    "/",
+    "@",
+    ".",
+    "com",
+    ":",
+    "git",
+    "heroku",
+    "push",
+    str(HEROKU_API_KEY),
+    "https",
+    str(HEROKU_APP_NAME),
+    "HEAD",
+    "main",
+]
+
+BASE = "https://batbin.me/"
+
+def get_arg(message: Message):
+    msg = message.text
+    msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
+    split = msg[1:].replace("\n", " \n").split(" ")
+    if " ".join(split[1:]).strip() == "":
+        return ""
+    return " ".join(split[1:])
+
+
+async def post(url: str, *args, **kwargs):
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, *args, **kwargs) as resp:
+            try:
+                data = await resp.json()
+            except Exception:
+                data = await resp.text()
+        return data
+
+
+async def PasteBin(text):
+    resp = await post(f"{BASE}api/v2/paste", data=text)
+    if not resp["success"]:
+        return
+    link = BASE + resp["message"]
+    return link
 
 if GIT_TOKEN:
     GIT_USERNAME = REPO_URL.split("com/")[1].split("/")[0]
     TEMP_REPO = REPO_URL.split("https://")[1]
     UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
-    UPSTREAM_REPO_URL = UPSTREAM_REPO
+if GIT_TOKEN:
+   UPSTREAM_REPO_URL = UPSTREAM_REPO
 else:
-    UPSTREAM_REPO_URL = REPO_URL
+   UPSTREAM_REPO_URL = REPO_URL
 
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
 
 
+def restart():
+    os.execvp(sys.executable, [sys.executable, "-m", "ling"])
+
 async def is_heroku():
     return "heroku" in socket.getfqdn()
+
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
 
 
 async def gen_chlog(repo, diff):
@@ -75,28 +131,56 @@ async def updateme_requirements():
         return process.returncode
     except Exception as e:
         return repr(e)
+        
+@Client.on_message(filters.command("restart", cmd) & filters.user(DEVS) & ~filters.me)
+async def restart_bot(_, message: Message):
+    try:
+        msg = await message.reply(" `Restarting bot...`")
+        LOGGER(__name__).info("BOT SERVER RESTARTED !!")
+    except BaseException as err:
+        LOGGER(__name__).info(f"{err}")
+        return
+    await msg.edit_text("✅ **Bot has restarted !**\n\n")
+    if HAPP is not None:
+        HAPP.restart()
+    else:
+        args = [sys.executable, "-m", "ling"]
+        execle(sys.executable, *args, environ)
 
 
 @Client.on_message(
-    filters.command("allupdate", ["."]) & filters.user(DEVS) & ~filters.me
-)
+    filters.command(["shutdown", "off"], cmds) & filters.user(DEVS) & ~filters.me)
+async def shutdown_bot(client: Client, message: Message):
+    if BOTLOG_CHATID:
+        await client.send_message(
+            BOTLOG_CHATID,
+            "**#SHUTDOWN** \n"
+            "**HyperRobot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+        )
+    await message.reply("✔️ **HyperRobot Berhasil di matikan!**")
+    if HAPP is not None:
+        HAPP.process_formation()["worker"].scale(0)
+    else:
+        sys.exit(0)
+
+@Client.on_message(filters.command("hupdate", ".") & filters.user(DEVS) & ~filters.me)
 @Client.on_message(filters.command("update", cmd) & filters.me)
 async def upstream(client: Client, message: Message):
-    status = await edit_or_reply(message, "`Proses Update... Mohon tunggu sebentar...`")
+    status = await message.edit_text("`Checking for Updates, Wait a Moment...`")
     conf = get_arg(message)
     off_repo = UPSTREAM_REPO_URL
     try:
         txt = (
-            "**Pembaruan Tidak Dapat Di Lanjutkan Karna "
-            + "Terjadi Beberapa ERROR**\n\n**LOGTRACE:**\n"
+            "**Update Could Not Continue Due "
+            + "Several ERROR Occurred**\n\n**LOGTRACE:**\n"
         )
         repo = Repo()
     except NoSuchPathError as error:
-        await status.edit(f"{txt}\n**Directory** `{error}` **Tidak Dapat Di Temukan.**")
+        await status.edit(f"{txt}\n**Directory** `{error}` **Can not be found.**")
         repo.__del__()
         return
     except GitCommandError as error:
-        await status.edit(f"{txt}\n**Kegagalan awal!** `{error}`")
+        await status.edit(f"{txt}\n**Early failure!** `{error}`")
         repo.__del__()
         return
     except InvalidGitRepositoryError:
@@ -127,22 +211,22 @@ async def upstream(client: Client, message: Message):
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if "deploy" not in conf:
         if changelog:
-            changelog_str = f"**Tersedia Pembaruan Untuk Branch [{ac_br}]:\n\nCHANGELOG:**\n\n`{changelog}`"
+            changelog_str = f"**Update Available For Branch [{ac_br}]:\n\nCHANGELOG:**\n\n`{changelog}`"
             if len(changelog_str) > 4096:
-                await status.edit("**Changelog terlalu besar, dikirim sebagai file.**")
+                await status.edit("**Changelog too big, sent as file.**")
                 file = open("output.txt", "w+")
                 file.write(changelog_str)
                 file.close()
                 await client.send_document(
                     message.chat.id,
                     "output.txt",
-                    caption=f"**Ketik** `{cmd}update deploy` **Untuk Mengupdate Userbot.**",
+                    caption=f"**Type** `.update deploy` **To Update Userbot.**",
                     reply_to_message_id=status.id,
                 )
                 remove("output.txt")
             else:
                 return await status.edit(
-                    f"{changelog_str}\n**Ketik** `{cmd}update deploy` **Untuk Mengupdate Userbot.**",
+                    f"{changelog_str}\n**Type** `.update deploy` **To Update Userbot.**",
                     disable_web_page_preview=True,
                 )
         else:
@@ -175,7 +259,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Update Deploy HyperRobot Sedang Dalam Proses...`"
+            "`[HEROKU]: HyperRobot Penyebaran Pembaruan sedang berlangsung...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -192,7 +276,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "HyperRobot Berhasil Diupdate✔️\nUserbot bisa di Gunakan Lagi.`"
+            "`HyperRobot Berhasil diperbarui! Userbot dapat digunakan kembali.`"
         )
     else:
         try:
@@ -201,23 +285,21 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "HyperRobot Berhasil Diupdate✔️\nUserbot bisa di Gunakan Lagi.`",
+            "`HyperRobot Berhasil diperbarui! Userbot dapat digunakan kembali.`",
         )
         args = [sys.executable, "-m", "ling"]
         execle(sys.executable, *args, environ)
         return
 
 
-@Client.on_message(filters.command("cupdate", ["."]) & filters.user(DEVS) & ~filters.me)
-@Client.on_message(filters.command("goupdate", cmd) & filters.me)
-async def updaterman(client: Client, message: Message):
+@Client.on_message(filters.command("youpdate", cmd) & filters.me)
+async def updatees(client: Client, message: Message):
     if await is_heroku():
         if HAPP is None:
-            return await edit_or_reply(
-                message,
-                "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku",
+            return await message.edit_text(
+                "Make sure your HEROKU_API_KEY and HEROKU_APP_NAME are configured correctly in heroku config vars",
             )
-    response = await edit_or_reply(message, "Checking for available updates...")
+    response = await message.edit_text("Checking for available updates...")
     try:
         repo = Repo()
     except GitCommandError:
@@ -265,12 +347,3 @@ async def updaterman(client: Client, message: Message):
         await bash("pip3 install -r requirements.txt")
         restart()
         exit()
-
-
-add_command_help(
-    "update",
-    [
-        ["update", "Untuk melihat list pembaruan terbaru dari RamPyro-Bot."],
-        ["update deploy", "Untuk mengupdate userbot."],
-    ],
-)
