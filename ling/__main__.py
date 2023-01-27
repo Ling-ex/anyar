@@ -9,13 +9,13 @@ from ling.split.misc import create_botlog, git, heroku
 from ling.modules import ALL_MODULES
 
 MSG_ON = """
-🔥 **HyperRobot Menyala** 🔥
+✔️ **Pertamax Userbot Activated**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 🤖 **Userbot Version -** `{}`
-⌨️ **Ketik** `{}ling` **untuk Mengecheck Bot**
+⌨️ **Ketik** `{}alive` **untuk Mengecheck Bot**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 """
-MSG_BOT = (f"**Hyper Robot Assistant**\nis alive...")
+MSG_BOT = (f"**Pertamax Assistant**\nis alive...")
 
 
 async def main():
@@ -28,8 +28,6 @@ async def main():
             bot.me = await bot.get_me()
             await bot.join_chat("storyQi")
             await bot.join_chat("HyperSupportQ")
-            await bot.join_chat("zonkeyamanahdansyariah")
-            await bot.join_chat("drasticmeasureson")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
@@ -38,12 +36,12 @@ async def main():
                 await app.send_message(BOTLOG_CHATID, MSG_BOT)
             except BaseException:
                 pass
-            LOGGER("ling").info(
-                f"Logged in as {bot.me.first_name} | [ {bot.me.id} ]"
+            LOGGER("✔️").info(
+                f"masuk sebagai {bot.me.first_name} | [ {bot.me.id} ]"
             )
         except Exception as a:
             LOGGER("main").warning(a)
-    LOGGER("ling").info(f"Ling-Ubot v{BOT_VER} [🔥 UDAH AKTIF 🔥]")
+    LOGGER("✔️").info(f"Pertamax v{BOT_VER} [🔥 UDAH AKTIF 🔥]")
     if not str(BOTLOG_CHATID).startswith("-100"):
         await create_botlog(bot1)
     await idle()
@@ -51,7 +49,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("ling").info("Starting Ling-Ubot")
+    LOGGER("✔️").info("Starting Pertamax")
     install()
     heroku()
     LOOP.run_until_complete(main())
