@@ -40,7 +40,7 @@ async def main():
                 f"masuk sebagai {bot.me.first_name} | [ {bot.me.id} ]"
             )
         except Exception as a:
-            LOGGER("main").warning(a)
+            LOGGER("master").warning(a)
     LOGGER("✔️").info(f"Pertamax v{BOT_VER} [🔥 UDAH AKTIF 🔥]")
     if not str(BOTLOG_CHATID).startswith("-100"):
         await create_botlog(bot1)
