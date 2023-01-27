@@ -1,11 +1,4 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-#
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
+# Masih Bug Anjing Jan di Ambil
 
 import os
 from asyncio import sleep
