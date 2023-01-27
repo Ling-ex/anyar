@@ -252,7 +252,7 @@ async def kang(client: Client, message: Message):
                     await client.send_message("Stickers", packname)
                     await asyncio.sleep(2)
                     await Man.edit(
-                        f"**Sticker Berhasil Ditambahkan!**\n         🔥 **[KLIK DISINI](https://t.me/addstickers/{packname})** 🔥\n**Untuk Menggunakan Stickers**"
+                        f"**Sticker Berhasil Ditambahkan [KLIK DISINI](https://t.me/addstickers/{packname})**"
                     )
                     return
             await client.send_document("stickers", media_)
@@ -300,7 +300,7 @@ async def kang(client: Client, message: Message):
             await client.send_message("Stickers", packname)
             await asyncio.sleep(2)
         await Man.edit(
-            f"**Sticker Berhasil Ditambahkan!**\n         🔥 **[KLIK DISINI](https://t.me/addstickers/{packname})** 🔥\n**Untuk Menggunakan Stickers**"
+            f"**Sticker Berhasil Ditambahkan [KLIK DISINI](https://t.me/addstickers/{packname})**"
         )
         if os.path.exists(str(media_)):
             os.remove(media_)
