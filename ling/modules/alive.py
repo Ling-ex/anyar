@@ -17,7 +17,7 @@ from pyrogram import __version__ as versipyro
 from pyrogram import filters
 from pyrogram.types import Message
 from telegraph import exceptions, upload_file
-from ling import join
+from Py import join
 from ling.helpers.basic import edit_or_reply
 from ling.helpers.PyroHelpers import ReplyCheck
 from ling.helpers.SQL.globals import gvarstatus
