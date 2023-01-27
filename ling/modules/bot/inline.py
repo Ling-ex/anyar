@@ -38,7 +38,7 @@ async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []
-    time_suffix_list = ["detik", "menit", "Jam", "Hari"]
+    time_suffix_list = ["Dtk", "Mnt", "Jam", "Hari"]
 
     while count < 4:
         count += 1
@@ -93,7 +93,7 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"<b>Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ</b>\n"
+        f"<b>Pᴇʀᴛᴀᴍᴀx Uꜱᴇʀʙᴏᴛ</b>\n"
         "  Sᴛᴀᴛᴜꜱ » 𝘗𝘦𝘳𝘵𝘢𝘮𝘢𝘹 \n"
         f"      Pɪɴɢᴇʀ ›</b> <code>{duration}ms</code> \n"
         f"      Uᴘᴛɪᴍᴇ ›</b> <code>{uptime}</code> \n"
