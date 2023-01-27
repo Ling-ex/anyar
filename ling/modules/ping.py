@@ -46,7 +46,7 @@ modules = CMD_HELP
 
 kopi = [
     "**Hadir bang** 😁",
-    "**Hadir kak** 😉",
+    "**Hadir sayang** 😉",
     "**Hadir dong** 😁",
     "**Hadir ganteng** 🥵",
     "**Hadir bro** 😎",
@@ -100,31 +100,30 @@ async def nearest_dc(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("hyping", ["."]) & filters.user(DEVS) & ~filters.me
 )
 @Client.on_message(filters.command("hping", cmd) & filters.me)
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
     ling = await edit_or_reply(message, "**Mengecek Sinyal...**")
-    await ling.edit("**▁**")
-    await ling.edit("**▁ ▂**")
-    await ling.edit("**▁ ▂ ▄**")
-    await ling.edit("**▁ ▂ ▄ ▅**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇**")
-    await ling.edit("**▁ ▂ ▄ ▅ ▆ ▇ █**")
+    await ling.edit("**20% ██▒▒▒▒▒▒▒▒**")
+    await ling.edit("**40% ████▒▒▒▒▒▒**")
+    await ling.edit("**60% ██████▒▒▒▒**")
+    await ling.edit("**80% ████████▒▒**")
+    await ling.edit("**100% ██████████**")
+    await ling.edit("**Completed!!**")
     await ling.edit("✨")
     await asyncio.sleep(2.5)
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await ling.edit(
-        f"**ʜʏᴘᴇʀ-ᴜʙᴏᴛ⌛**\n"
+        f"**Pᴇʀᴛᴀᴍᴀx Uꜱᴇʀʙᴏᴛ**\n"
         f"** ➠  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
-        f"** ➠  Uᴘᴛɪᴍᴇ  :** "
+        f"** ➠  Aᴋᴛɪꜰ  :** "
         f"`{uptime}` \n"
-        f"** ➠  Oᴡɴᴇʀ   :** {client.me.mention}" % (duration)
+        f"** ➠  Mᴀꜱᴛᴇʀ   :** {client.me.mention}" % (duration)
     )
 
 @Client.on_message(filters.command("ling", cmd) & filters.me)
@@ -146,7 +145,7 @@ async def module_ping(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command("dping", ["."]) & filters.user(DEVS) & ~filters.me
+    filters.command("lping", ["."]) & filters.user(DEVS) & ~filters.me
 )
 @Client.on_message(filters.command("ping", cmd) & filters.me)
 async def kping(client: Client, message: Message):
@@ -155,10 +154,10 @@ async def kping(client: Client, message: Message):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await message.reply_text(
-        f"**Hʏᴘᴇʀ-Uʙᴏᴛ** 🏓\n"
-        f"**• Pᴏɴɢ »** "
+        f"**Pᴇʀᴛᴀᴍᴀx Uꜱᴇʀʙᴏᴛ** 🏓\n"
+        f"**Pᴏɴɢ »** "
         f" `%sms` \n "
-        f"**• Uᴘᴛɪᴍᴇ »** "
+        f"**Aᴋᴛɪꜰ »** "
         f" `{uptime}` \n " % (duration)
     )
         
