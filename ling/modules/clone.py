@@ -18,7 +18,7 @@ from rams.helpers.basic import edit_or_reply, get_text, get_user
 from .help import *
 
 OWNER = os.environ.get("OWNER", None)
-BIO = os.environ.get("BIO", "RamPyro-Bot")
+BIO = os.environ.get("BIO", "PertamaxUserbot")
 
 
 @Client.on_message(filters.command("clone", cmd) & filters.me)
