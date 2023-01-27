@@ -37,14 +37,14 @@ emoji = gvarstatus("ALIVE_EMOJI") or "🤖"
 alive_text = gvarstatus("ALIVE_TEKS_CUSTOM") or "Hey bro, I am hyper."
 
 
-@Client.on_message(filters.command(["kepoo", cmd], cmd) & filters.me)
+@Client.on_message(filters.command(["pertamax", cmd], cmd) & filters.me)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🤖")
     await asyncio.sleep(2)
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"──「 **[Hʏᴘᴇʀ-Uʙᴏᴛ](https://github.com/Ling-ex/Ling-Ubot)** 」──\n\n"
+        f"──「 **[Pᴇʀᴛᴀᴍᴀx Uꜱᴇʀʙᴏᴛ](https://github.com/Ling-ex/Ling-Ubot)** 」──\n\n"
         f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
