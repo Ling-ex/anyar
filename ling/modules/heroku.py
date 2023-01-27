@@ -172,7 +172,7 @@ async def usage_heroku(client: Client, message: Message):
     AppMinutes = math.floor(AppQuotaUsed % 60)
     await asyncio.sleep(1.5)
     text =f"""
-𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡 𝗛𝗬𝗣𝗘𝗥-𝗨𝗕𝗢𝗧!!
+𝗜𝗡𝗙𝗢 𝗣𝗘𝗥𝗧𝗔𝗠𝗔𝗫 𝗨𝗦𝗘𝗥𝗕𝗢𝗧!!
 
 ╭✠╼━━━━━━❖━━━━━━━✠╮
 ┣•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗦𝗔𝗔𝗧 𝗜𝗡𝗜 : 
@@ -189,7 +189,7 @@ async def usage_heroku(client: Client, message: Message):
     return await dyno.edit(text)
 
 
-@Client.on_message(filters.command("uasu", CMD_HANDLER) & filters.me)
+@Client.on_message(filters.command("usange", CMD_HANDLER) & filters.me)
 async def usange_heroku(client: Client, message: Message):
     xx = await edit_or_reply(message, "`Processing...`")
     await xx.edit(
@@ -217,7 +217,7 @@ add_command_help(
             "Untuk mengecheck kouta dyno heroku.",
         ],
         [
-            "uasu",
+            "usange",
             "Fake Usage Kouta Dyno Heroku jadi 1000jam Untuk menipu temanmu wkwk.",
         ],
     ],
