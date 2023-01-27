@@ -156,9 +156,9 @@ async def shutdown_bot(client: Client, message: Message):
         await client.send_message(
             BOTLOG_CHATID,
             "**#SHUTDOWN** \n"
-            "**HyperRobot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**Pertamax Userbot** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
-    await message.reply("✔️ **HyperRobot Berhasil di matikan!**")
+    await message.reply("✔️ **Pertamax Userbot Berhasil di matikan!**")
     if HAPP is not None:
         HAPP.process_formation()["worker"].scale(0)
     else:
@@ -260,7 +260,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: HyperRobot Penyebaran Pembaruan sedang berlangsung...`"
+            "`[HEROKU]: Pertamax Userbot Penyebaran Pembaruan sedang berlangsung...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -277,7 +277,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`HyperRobot Berhasil diperbarui! Userbot dapat digunakan kembali.`"
+            "`Pertamax Userbot Berhasil diperbarui! Userbot dapat digunakan kembali.`"
         )
     else:
         try:
@@ -364,7 +364,7 @@ async def logs_ubot(client: Client, message: Message):
         message.chat.id,
         "Logs-Heroku.txt",
         thumb="ling/split/Ling.jpg",
-        caption="**Ini Logs Heroku Hyper**",
+        caption="**Ini Logs Heroku Pertamax**",
     )
     await Man.delete()
     remove("Logs-Heroku.txt")
