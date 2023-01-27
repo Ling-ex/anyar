@@ -68,7 +68,6 @@ async def alive(client: Client, message: Message):
         
 @Client.on_message(filters.command(["alive"], cmd) & filters.me)
 async def module_help(client: Client, message: Message):
-    await join(client)
     cmd = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
