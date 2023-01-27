@@ -26,7 +26,7 @@ from ling.modules.bot.inline import get_readable_time
 from config import CMD_HANDLER as cmd
 from .updater import restart
 from config import *
-from ling import CMD_HELP, StartTime
+from ling import CMD_HELP, StartTime, app
 
 
 modules = CMD_HELP
