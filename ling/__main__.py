@@ -9,13 +9,13 @@ from ling.split.misc import create_botlog, git, heroku
 from ling.modules import ALL_MODULES
 
 MSG_ON = """
-✔️ **Pertamax Userbot Activated**
+✔️ **Hyper Userbot Activated**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 🤖 **Userbot Version -** `{}`
 ⌨️ **Ketik** `{}alive` **untuk Mengecheck Bot**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 """
-MSG_BOT = (f"**Pertamax Assistant**\nis alive...")
+MSG_BOT = (f"**Hyper Assistant**\nis alive...")
 
 
 async def main():
@@ -41,7 +41,7 @@ async def main():
             )
         except Exception as a:
             LOGGER("master").warning(a)
-    LOGGER("✔️").info(f"Pertamax v{BOT_VER} [🔥 UDAH AKTIF 🔥]")
+    LOGGER("✔️").info(f"HyperRobot v{BOT_VER} [✨ UDAH AKTIF ✨]")
     if not str(BOTLOG_CHATID).startswith("-100"):
         await create_botlog(bot1)
     await idle()
@@ -49,7 +49,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("✔️").info("Starting Pertamax")
+    LOGGER("✔️").info("Starting HyperRobot")
     install()
     heroku()
     LOOP.run_until_complete(main())
