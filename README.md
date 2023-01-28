@@ -1,65 +1,52 @@
-# HyperRobot Telegram
+<p align="center">
+  <img src="https://telegra.ph/file/554a2a42a50326a0cc482.jpg">
+</p>
 
-HyperRobot is a modular telegram user that runs on Python3 with a pyrogram library.
+<h4><p align="center"> HYPER ROBOT </p></h4>
 
-I made this repository to have fun while helping you manage the group efficiently and to help reduce boredom when using telegram.
+<p align="center">Hyper Robot is a modular bot running on python3.</p>
 
-## ⚠️ FOR YOU INFORMATION
+<p align="center">
+<a href="https://t.me/InlineKeyboardMarkup"> <img src="https://img.shields.io/badge/Hyper-Robot-blue?&logo=telegram" alt="Ling on Telegram" /> </a><br>
+<a href="https://python-telegram-bot.org"> <img src="https://img.shields.io/badge/PTB-13.13-white?&style=flat-round&logo=github" alt="Python Telegram Bot" /> </a>
+<a href="https://docs.pyrogram.dev"> <img src="https://img.shields.io/badge/Pyrogram-2.0.97-red?&style=flat-round&logo=github" alt="Pyrogram" /> </a>
+<a href="https://docs.python.org"> <img src="https://img.shields.io/badge/Python-3.9.16-purple?&style=flat-round&logo=python" alt="Python" /> </a><br>
+<a href="https://GitHub.com/Ling-ex/new"> <img src="https://img.shields.io/badge/Maintained-Ling-yellow.svg" alt="Maintenance" /> </a><br>
+<a href="https://github.com/Ling-ex/new/blob/main/LICENSE"> <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" /> </a>
+<a href="https://makeapullrequest.com"> <img src="https://img.shields.io/badge/PRs-Welcome-blue.svg?style=flat-round" alt="PRs" /> </a>
+</p>
+
+### TUTORIAL
+
+- Pertama fork repositori ini.
+- Kemudian ubah tautan penerapan di bawah.
+- Langkah ini harus dilakukan karena tautan tambang melanggar penggunaan tenaga penjualan yang dapat diterima.
+- Anda cukup mengubah nama github di tautan penerapan dan selesai, repo dapat diterapkan di heroku.
+
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/Ling-ex/anyar"> <img 
+src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=flat&logo=heroku" width="210" height="34.45" /></a></p>
+
 
 ```
-I am not responsible for the abuse of this bot.
-Use this bot with your own risk.
-Use this userbot wisely.
-When you have installed this userbot, it means you are ready with the risks.
+Bot ini Dibuat oleh HyperRobot, Jika Anda kanging ini tanpa fork setidaknya berikan kredit untuk mendapatkan senyum dari kerja keras saya.
+- Ling
+- Risman
+- Kynan
+- Rama
 ```
 
-<h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku</h3>
-<a href="https://heroku.com/deploy?template=https://github.com/izzy-adeeva/RamPyro-Bot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
-</div>
 
-## 🖇 Generating Pyrogram String Session
-    
-> Anda memerlukan APP ID & API HASH Telegram untuk mengambil sesi Pyrogram. ambil APP ID dan API Hash di my.telegram.org
-- Generate Session via <a href="https://repl.it/@mrismanaziz/stringen?lite=1&outputonly=1">Repl</a>
-- Generate Session via <a href="https://t.me/StringRamUbot">Telegram String Generation Bot</a>
+### 📝Support
+<p>
+<a href="https://t.me/InlineKeyboardMarkup"> <img src="https://img.shields.io/badge/Ling-blue?&logo=telegram" alt="Ling on Telegram" /> </a><br>
+<a href="https://t.me/HyperSupportQ"> <img src="https://img.shields.io/badge/Update-Chat-blue?&logo=telegram" alt="Gropus Chat" /> </a><br>
+<a href="https://t.me/storyQi"> <img src="https://img.shields.io/badge/Support-Channel-blue?&logo=telegram" alt="Channel Chat" /> </a><br>
+</p>
 
-## Okteto Deploy [Recomended if heroku not free]
-  <a href="https://okteto.com">Click Here</a>
 
-## VPS 
+
+## Credit 
+
 ```
-- git clone https://github.com/Ling-ex/Ling-Ubot
-- cd Ling-Ubot
-- pip install -U -r requirements.txt
-- cp sample-config.env .env
-- nano .env (isi vars)(save)
-- screen -S Ling-Ubot
-- bash start
-- seduh kopi, bakar roko, nyender
-
-(tested on ubuntu 20-22 / python 3.9 - 3.10.14)
+Percuma memberi kredit karena ANDA tidak akan peduli.
 ```
-
-## 🏷 Support
-
-- Follow Channel [@userbotch](https://t.me/userbotch) untuk info Update bot 
-- Gabung Group [@ramsupportt](https://t.me/ramsupportt) untuk diskusi, pelaporan bug, dan bantuan tentang PyroKar-Userbot.
-
-## 👨🏻‍💻 Credits
--  [Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram)
--  [Risman](https://github.com/mrismanaziz) for [PyroMan-Userbot](https://github.com/mrismanaziz/PyroMan-Userbot)
--  [Arman](https://github.com/ArmanGG01) for [PyroKar-Userbot](https://github.com/ArmanGG01/PyroKar-Userbot)
--  [Rama](https://github.com/ramadhani892) for [RAM-UBOT](https://github.com/ramadhani892/RAM-UBOT)
--  [Ling](https://github.com/Ling-ex) for [HyperRobot](https://github.com/Ling-ex/Ling-Ubot)
-
-#### Special Thanks To [Everyone](https://github.com/mrismanaziz/PyroMan-Userbot/graphs/contributors) Who Has Helped Make This Userbot Awesome!
--  [TeamDerUntergang](https://github.com/TeamDerUntergang/Telegram-SedenUserBot) : SedenUserBot
--  [TheHamkerCat](https://github.com/TheHamkerCat/WilliamButcherBot) : WilliamButcherBot
--  [TeamYukki](https://github.com/TeamYukki/YukkiMusicBot) : YukkiMusicBot
--  [ITZ-ZAID](https://github.com/ITZ-ZAID) : Zaid-UserBot
--  [Tofikdn](https://github.com/tofikdn) : Tede
--  [Toni](https://github.com/Toni880) : Prime-UserBot
--  [Hadi](https://github.com/hdiiofficial) : hdiiofficial
-
-## 📑 License
-Licensed under [GNU General Public License v3.0](https://github.com/mrismanaziz/PyroMan-Userbot/blob/Man-Userbot/LICENSE) All designs were created by [@mrismanaziz](https://github.com/mrismanaziz)
