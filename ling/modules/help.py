@@ -47,7 +47,7 @@ async def module_help(client: Client, message: Message):
             print(f"{e}")
             ac = PrettyTable()
             ac.header = False
-            ac.title = "Pertamax Userbot Modules"
+            ac.title = "Hyper Userbot Modules"
             ac.align = "l"
             for x in split_list(sorted(CMD_HELP.keys()), 2):
                 ac.add_row([x[0], x[1] if len(x) >= 2 else None])
@@ -89,7 +89,7 @@ async def module_helper(client: Client, message: Message):
     elif not message.reply_to_message and len(cdm) == 1:
         ac = PrettyTable()
         ac.header = False
-        ac.title = "Pertamax Userbot Modules"
+        ac.title = "Hyper Userbot Modules"
         ac.align = "l"
         for x in split_list(sorted(CMD_HELP.keys()), 2):
             ac.add_row([x[0], x[1] if len(x) >= 2 else None])
