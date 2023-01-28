@@ -108,7 +108,7 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(HEROKU_API_KEY)
                 HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("✔️").info(f"Heroku App Configured")
+                LOGGER("✔️").info(f"HyperRobot ✔️")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
                 LOGGER("Heroku").info(
