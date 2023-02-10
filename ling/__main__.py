@@ -41,7 +41,7 @@ async def main():
             )
         except Exception as a:
             LOGGER("master").warning(a)
-    LOGGER("✔️").info(f"HyperRobot v{BOT_VER} [✨ UDAH AKTIF ✨]")
+    LOGGER("✔️").info(f"Hyper v{BOT_VER} [🔥 UDAH AKTIF 🔥]")
     if not str(BOTLOG_CHATID).startswith("-100"):
         await create_botlog(bot1)
     await idle()
@@ -49,7 +49,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    LOGGER("✔️").info("Starting HyperRobot")
+    LOGGER("✔️").info("Starting Hyper")
     install()
     heroku()
     LOOP.run_until_complete(main())
