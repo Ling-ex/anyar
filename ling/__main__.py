@@ -12,7 +12,7 @@ MSG_ON = """
 ✔️ **Hyper Userbot Activated**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 🤖 **Userbot Version -** `{}`
-⌨️ **Ketik** `{}alive` **untuk Mengecheck Bot**
+⌨️ **Ketik** `{}alive` atau `{}ling` **untuk Mengecheck Bot**
 ╼┅━━━━━━━━━╍━━━━━━━━━┅╾
 """
 MSG_BOT = (f"**Hyper Assistant**\nis alive...")
