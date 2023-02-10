@@ -102,14 +102,14 @@ async def gucast_cmd(client: Client, message: Message):
     )
 
 
-@Client.on_message(filters.command("listbl", cmd) & filters.me)
+@Client.on_message(filters.command("blchat", cmd) & filters.me)
 async def blchatgcast(client: Client, message: Message):
     blacklistgc = "True" if BLACKLIST_GCAST else "False"
-    list = blchatgcast.replace(" ", "\n» ")
+    list = BLACKLIST_GCAST.replace(" ", "\n» ")
     if blacklistgc == "True":
         await edit_or_reply(
             message,
-            f"🔮 **Blacklist GCAST:** `Enabled`\n\n📚 **Blacklist Group:**\n» {list}\n\nKetik `{cmd}addblacklist` di grup yang ingin anda tambahkan ke daftar blacklist gcast.",
+            f"🔮 **Blacklist GCAST:** `Enabled`\n\n📚 **Blacklist Group:**\n» {list}\n\nKetik `{cmd}addbl` di grup yang ingin anda tambahkan ke daftar blacklist gcast.",
         )
     else:
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
