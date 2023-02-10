@@ -9,8 +9,8 @@ load_dotenv(".env")
 ALIVE_EMOJI = getenv("ALIVE_EMOJI", "👑")
 ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph/file/0a4818429a8a70bb1e8da.jpg")
 ALIVE_TEKS_CUSTOM = getenv("ALIVE_TEKS_CUSTOM", "Hey bro, I am hyper.")
-API_HASH = getenv("API_HASH", "34efb38c74d5e6b25d1bb6234396a8af")
-API_ID = getenv("API_ID", "")
+API_HASH = getenv("API_HASH", "be6ba80decab712fe259c55c3cd46b86")
+API_ID = getenv("API_ID", "21836949")
 BLACKLIST_CHAT = getenv("BLACKLIST_CHAT", None)
 if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001883961446]
