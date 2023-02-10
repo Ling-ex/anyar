@@ -68,16 +68,23 @@ if (
     and not STRING_SESSION9
     and not STRING_SESSION10
 ):
-    LOGGER(__name__).error("No String Session Found! Exiting!")
+    LOGGER(__name__).warning("STRING SESSION TIDAK DITEMUKAN, SHUTDOWN BOT!")
     sys.exit()
 
-if not API_ID:
-    LOGGER(__name__).error("No API_ID Found! Exiting!")
-    sys.exit()
+if API_ID:
+   API_ID = API_ID
+else:
+   API_ID = "21836949"
 
-if not API_HASH:
-    LOGGER(__name__).error("No API_HASH Found! Exiting!")
-    sys.exit()
+if API_HASH:
+   API_HASH = API_HASH
+else:
+   LOGGER(__name__).warning("WARNING: MEMULAI BOT TANPA API HASH dan API ID")  
+   API_HASH = "be6ba80decab712fe259c55c3cd46b86"
+
+if not BOT_TOKEN:
+   LOGGER(__name__).error("WARNING: BOT TOKEN TIDAK DITEMUKAN, SHUTDOWN BOT")
+   sys.exit
 
 if BOTLOG_CHATID:
     BOTLOG_CHATID = BOTLOG_CHATID
