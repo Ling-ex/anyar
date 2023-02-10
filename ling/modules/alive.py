@@ -28,7 +28,6 @@ from .updater import restart
 from config import *
 from ling import CMD_HELP, StartTime, app
 
-from .help from add_command_help
 
 modules = CMD_HELP
 alive_logo = (
@@ -174,26 +173,3 @@ async def setemoji(client: Client, message: Message):
     sql.addgvar("ALIVE_EMOJI", emoji)
     await Man.edit(f"**Berhasil Mengcustom EMOJI ALIVE Menjadi** {emoji}")
     restart()
-
-
-add_command_help(
-    "alive",
-    [
-        [
-            "alive",
-            "Untuk memeriksa userbot anda berfungsi atau tidak",
-        ],
-        [
-            "setalivelogo <link telegraph atau reply ke foto/video/gif>",
-            "Untuk mengcustom alive logo userbot anda",
-        ],
-        [
-            "setalivetext <text>",
-            "Untuk mengcustom alive text userbot anda",
-        ],
-        [
-            "setemoji <emoji>",
-            "Untuk mengcustom emoji alive userbot anda",
-        ],
-    ],
-)
