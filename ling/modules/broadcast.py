@@ -105,7 +105,7 @@ async def gucast_cmd(client: Client, message: Message):
 @Client.on_message(filters.command("listbl", cmd) & filters.me)
 async def blchatgcast(client: Client, message: Message):
     blacklistgc = "True" if BLACKLIST_GCAST else "False"
-    list = BLACKLIST_GCAST.replace(" ", "\n» ")
+    list = blchatgcast.replace(" ", "\n» ")
     if blacklistgc == "True":
         await edit_or_reply(
             message,
@@ -132,7 +132,7 @@ async def addblacklist(client: Client, message: Message):
         .replace("set() ", "")
     )
     await xxnx.edit(
-        f"**Berhasil Menambahkan** `{message.chat.id}` **ke daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+        f"**Berhasil Menambahkan ke daftar blacklist gcast.**\nId Group: `{message.chat.id}` ."
     )
     if await in_heroku():
         heroku_var = HAPP.config()
