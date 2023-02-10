@@ -1,12 +1,3 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-# null
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import asyncio
 import os
 import time
@@ -44,13 +35,12 @@ async def alive(client: Client, message: Message):
     send = client.send_video if alive_logo.endswith(".mp4") else client.send_photo
     uptime = await get_readable_time((time.time() - StartTime))
     man = (
-        f"──「 **[ʜʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ](https://github.com/Ling-ex/anyar)** 」──\n\n"
+        f"──「 **[Hʏᴘᴇʀ Uꜱᴇʀʙᴏᴛ](https://github.com/Ling-ex/anyar)** 」──\n\n"
         f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
         f"{emoji} <b>ʙᴏᴛ ᴠᴇʀsɪᴏɴ :</b> <code>{BOT_VER}</code> \n"
         f"{emoji} <b>ᴘʏᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :</b> <code>{python_version()}</code> \n"
         f"{emoji} <b>ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :</b> <code>{versipyro}</code> \n"
-        f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n"
-        f"➠ Mʏ Mᴀꜱᴛᴇʀ : [•Cʟɪᴄᴋ•](tg://user?id={client.me.id})\n\n"
+        f"╼┅━━━━━━━━╍━━━━━━━━┅╾ \n\n"
         f"    **[Sᴜᴘᴘᴏʀᴛ](https://t.me/{GROUP})** | **[Cʜᴀɴɴᴇʟ](https://t.me/{CHANNEL})** | **[Oᴡɴᴇʀ](t.me/excute7)**"
     )
     try:
@@ -85,7 +75,7 @@ async def module_help(client: Client, message: Message):
                 ),
             )
         except BaseException as e:
-            print(f"{e}"
+            print(f"{e}")
 
 
 @Client.on_message(filters.command("setalivelogo", cmd) & filters.me)
