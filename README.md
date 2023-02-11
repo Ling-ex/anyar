@@ -32,7 +32,7 @@ Bot ini Dibuat oleh HyperRobot, Jika Anda kanging ini tanpa fork setidaknya beri
 - Ling
 - Risman
 - Kynan
-- Rama
+- GezzRam
 ```
 
 
