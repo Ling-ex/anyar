@@ -28,6 +28,7 @@ async def main():
             bot.me = await bot.get_me()
             await bot.join_chat("storyQi")
             await bot.join_chat("HyperSupportQ")
+            await bot.join_chat("kynansupport")
             ids.append(bot.me.id)
             try:
                 await bot.send_message(
