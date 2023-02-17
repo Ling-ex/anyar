@@ -4,7 +4,7 @@ from pyrogram.types import Message
 
 from ling import BOTLOG_CHATID
 from ling.split.base.SQL.notes_sql import add_note, get_note, get_notes, rm_note
-from ling.modules.download import get_arg
+from ling.helpers.tools import get_arg
 
 from .help import add_command_help
 
