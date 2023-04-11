@@ -23,35 +23,27 @@ from .help import add_command_help
 @Client.on_message(filters.command(["sm", "sg", "sangmata"], cmd) & filters.me)
 async def sg(client: Client, message: Message):
     args = await extract_user(message)
-    lol = await edit_or_reply(message, "Gua kepo, Sapa si namalu pepek....`")
+    lol = await message.edit("<code>Processing...</code>")
     if args:
         try:
             user = await client.get_users(args)
         except Exception:
-            return await lol.edit(f"`Please specify a valid user!`")
-    bot = "SangMataInfo_bot"
+         return await lol.edit("<code>Please specify a valid user!</code>")
+    sg = -1001936325181
     try:
-        await client.send_message(bot, f"/search_id {user.id}")
-    except YouBlockedUser:
-        await client.unblock_user(bot)
-        await client.send_message(bot, f"/search_id {user.id}")
+         await client.join_chat("https://t.me/+ZlDl0da5ag9jYWRl")
+         await asyncio.sleep(0.5)
+         await client.send_message(sg, f"@Sangmata_beta_bot Allhistory {user.id}")
+    except:
+         return
     await asyncio.sleep(1)
-
-    async for stalk in client.search_messages(bot, query="Name", limit=1):
+    async for stalk in client.search_messages(sg, limit=1):
         if not stalk:
-            await message.edit_text("**Orang Ini Belum Pernah Mengganti Namanya**")
+            await message.edit("<code>Orang Ini Belum Pernah Mengganti Namanya</code>")
             return
         elif stalk:
             await message.edit(stalk.text)
-            await stalk.delete()
-
-    async for stalk in client.search_messages(bot, query="Username", limit=1):
-        if not stalk:
-            return
-        elif stalk:
-            await message.reply(stalk.text)
-            await stalk.delete()
-
+            await client.leave_chat(sg)
 
 add_command_help(
     "sangmata",
