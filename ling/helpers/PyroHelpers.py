@@ -14,13 +14,12 @@ async def get_ub_chats(
 ):
     ub_chats = []
     async for dialog in client.get_dialogs():
-        if dialog.chat.type in chat_types:
-            if is_id_only:
-                ub_chats.append(dialog.chat.id)
-            else:
-                ub_chats.append(dialog.chat)
-        else:
+        if dialog.chat.type not in chat_types:
             continue
+        if is_id_only:
+            ub_chats.append(dialog.chat.id)
+        else:
+            ub_chats.append(dialog.chat)
     return ub_chats
 
 
@@ -59,13 +58,13 @@ def GetChatID(message: Message):
 def GetUserMentionable(user: User):
     """Get mentionable text of a user."""
     if user.username:
-        username = "@{}".format(user.username)
+        username = f"@{user.username}"
     else:
         if user.last_name:
-            name_string = "{} {}".format(user.first_name, user.last_name)
+            name_string = f"{user.first_name} {user.last_name}"
         else:
-            name_string = "{}".format(user.first_name)
+            name_string = f"{user.first_name}"
 
-        username = "<a href='tg://user?id={}'>{}</a>".format(user.id, name_string)
+        username = f"<a href='tg://user?id={user.id}'>{name_string}</a>"
 
     return username

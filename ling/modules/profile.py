@@ -49,37 +49,29 @@ async def unblock_user_func(client: Client, message: Message):
 @Client.on_message(filters.command(["setname"], cmd) & filters.me)
 async def setname(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing . . .`")
-    if len(message.command) == 1:
+    if len(message.command) == 1 or len(message.command) <= 1:
         return await Man.edit(
             "Berikan teks untuk ditetapkan sebagai nama telegram anda."
         )
-    elif len(message.command) > 1:
-        name = message.text.split(None, 1)[1]
-        try:
-            await client.update_profile(first_name=name)
-            await Man.edit(f"**Berhasil Mengubah Nama Telegram anda Menjadi** `{name}`")
-        except Exception as e:
-            await Man.edit(f"**ERROR:** `{e}`")
-    else:
-        return await Man.edit(
-            "Berikan teks untuk ditetapkan sebagai nama telegram anda."
-        )
+    name = message.text.split(None, 1)[1]
+    try:
+        await client.update_profile(first_name=name)
+        await Man.edit(f"**Berhasil Mengubah Nama Telegram anda Menjadi** `{name}`")
+    except Exception as e:
+        await Man.edit(f"**ERROR:** `{e}`")
 
 
 @Client.on_message(filters.command(["setbio"], cmd) & filters.me)
 async def set_bio(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing . . .`")
-    if len(message.command) == 1:
+    if len(message.command) == 1 or len(message.command) <= 1:
         return await Man.edit("Berikan teks untuk ditetapkan sebagai bio.")
-    elif len(message.command) > 1:
-        bio = message.text.split(None, 1)[1]
-        try:
-            await client.update_profile(bio=bio)
-            await Man.edit(f"**Berhasil Mengubah BIO anda menjadi** `{bio}`")
-        except Exception as e:
-            await Man.edit(f"**ERROR:** `{e}`")
-    else:
-        return await Man.edit("Berikan teks untuk ditetapkan sebagai bio.")
+    bio = message.text.split(None, 1)[1]
+    try:
+        await client.update_profile(bio=bio)
+        await Man.edit(f"**Berhasil Mengubah BIO anda menjadi** `{bio}`")
+    except Exception as e:
+        await Man.edit(f"**ERROR:** `{e}`")
 
 
 @Client.on_message(filters.me & filters.command(["setpfp"], cmd))
@@ -109,10 +101,7 @@ async def set_pfp(client: Client, message: Message):
 @Client.on_message(filters.me & filters.command(["vpfp"], cmd))
 async def view_pfp(client: Client, message: Message):
     user_id = await extract_user(message)
-    if user_id:
-        user = await client.get_users(user_id)
-    else:
-        user = await client.get_me()
+    user = await client.get_users(user_id) if user_id else await client.get_me()
     if not user.photo:
         await message.edit("Foto profil tidak ditemukan!")
         return

@@ -13,13 +13,13 @@ from .help import *
 async def trump_tweet(client: Client, message: Message):
     text = get_text(message)
     if not text:
-        await message.edit(f"**Trump :** ``What Should I Tweet For You ?``")
+        await message.edit("**Trump :** ``What Should I Tweet For You ?``")
         return
     url = f"https://nekobot.xyz/api/imagegen?type=trumptweet&text={text}"
     r = requests.get(url=url).json()
     tweet = r["message"]
     starkxd = f"**Trump Has Tweeted** {text}"
-    await message.edit(f"**Trump:** Wait I Am Tweeting Your Text")
+    await message.edit("**Trump:** Wait I Am Tweeting Your Text")
     await client.send_photo(message.chat.id, tweet, caption=starkxd)
     await message.delete()
 

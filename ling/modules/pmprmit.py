@@ -50,11 +50,7 @@ async def incomingpm(client: Client, message: Message):
     if message.chat.id != 777000:
         PM_LIMIT = gvarstatus("PM_LIMIT") or 5
         getmsg = gvarstatus("unapproved_msg")
-        if getmsg is not None:
-            UNAPPROVED_MSG = getmsg
-        else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
-
+        UNAPPROVED_MSG = getmsg if getmsg is not None else DEF_UNAPPROVED_MSG
         apprv = is_approved(message.chat.id)
         if not apprv and message.text != UNAPPROVED_MSG:
             if message.chat.id in TEMP_SETTINGS["PM_LAST_MSG"]:
@@ -158,7 +154,7 @@ async def approvepm(client: Client, message: Message):
         uid = replied_user.id
     else:
         aname = message.chat
-        if not aname.type == enums.ChatType.PRIVATE:
+        if aname.type != enums.ChatType.PRIVATE:
             await message.edit(
                 "Saat ini Anda tidak sedang dalam PM dan Anda belum membalas pesan seseorang."
             )
@@ -197,7 +193,7 @@ async def disapprovepm(client: Client, message: Message):
         uid = replied_user.id
     else:
         aname = message.chat
-        if not aname.type == enums.ChatType.PRIVATE:
+        if aname.type != enums.ChatType.PRIVATE:
             await message.edit(
                 "Saat ini Anda tidak sedang dalam PM dan Anda belum membalas pesan seseorang."
             )
@@ -247,10 +243,7 @@ async def onoff_pmpermit(client: Client, message: Message):
         h_type = False
     elif input_str == "on":
         h_type = True
-    if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
-        PMPERMIT = False
-    else:
-        PMPERMIT = True
+    PMPERMIT = not gvarstatus("PMPERMIT") or gvarstatus("PMPERMIT") != "false"
     if PMPERMIT:
         if h_type:
             await edit_or_reply(message, "**PMPERMIT Sudah Diaktifkan**")

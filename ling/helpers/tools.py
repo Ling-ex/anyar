@@ -23,12 +23,11 @@ def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
         return None
-    if " " in text_to_return:
-        try:
-            return message.text.split(None, 1)[1]
-        except IndexError:
-            return None
-    else:
+    if " " not in text_to_return:
+        return None
+    try:
+        return message.text.split(None, 1)[1]
+    except IndexError:
         return None
 
 
@@ -42,7 +41,7 @@ def humanbytes(size):
     while size > power:
         size /= power
         raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}B"
 
 def run_in_exc(f):
     @functools.wraps(f)
@@ -54,16 +53,16 @@ def run_in_exc(f):
 
 def time_formatter(milliseconds: int) -> str:
     """Time Formatter"""
-    seconds, milliseconds = divmod(int(milliseconds), 1000)
+    seconds, milliseconds = divmod(milliseconds, 1000)
     minutes, seconds = divmod(seconds, 60)
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     tmp = (
-        ((str(days) + " day(s), ") if days else "")
-        + ((str(hours) + " hour(s), ") if hours else "")
-        + ((str(minutes) + " minute(s), ") if minutes else "")
-        + ((str(seconds) + " second(s), ") if seconds else "")
-        + ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
+        (f"{str(days)} day(s), " if days else "")
+        + (f"{str(hours)} hour(s), " if hours else "")
+        + (f"{str(minutes)} minute(s), " if minutes else "")
+        + (f"{str(seconds)} second(s), " if seconds else "")
+        + (f"{str(milliseconds)} millisecond(s), " if milliseconds else "")
     )
     return tmp[:-2]
 
@@ -81,8 +80,8 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join(["▰" for i in range(math.floor(percentage / 10))]),
-            "".join(["▱" for i in range(10 - math.floor(percentage / 10))]),
+            "".join(["▰" for _ in range(math.floor(percentage / 10))]),
+            "".join(["▱" for _ in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2),
         )
         tmp = progress_str + "{0} of {1}\nETA: {2}".format(
@@ -90,16 +89,14 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
         )
         if file_name:
             try:
-                await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
-                )
+                await message.edit(f"{type_of_ps}\n**File Name:** `{file_name}`\n{tmp}")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except MessageNotModified:
                 pass
         else:
             try:
-                await message.edit("{}\n{}".format(type_of_ps, tmp))
+                await message.edit(f"{type_of_ps}\n{tmp}")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except MessageNotModified:
@@ -119,8 +116,8 @@ async def cb_progress(current, total, cb, start, type_of_ps, file_name=None):
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
         progress_str = "{0}{1} {2}%\n".format(
-            "".join(["▰" for i in range(math.floor(percentage / 10))]),
-            "".join(["▱" for i in range(10 - math.floor(percentage / 10))]),
+            "".join(["▰" for _ in range(math.floor(percentage / 10))]),
+            "".join(["▱" for _ in range(10 - math.floor(percentage / 10))]),
             round(percentage, 2),
         )
         tmp = progress_str + "{0} of {1}\nETA: {2}".format(
@@ -129,7 +126,7 @@ async def cb_progress(current, total, cb, start, type_of_ps, file_name=None):
         if file_name:
             try:
                 await cb.edit_message_text(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
+                    f"{type_of_ps}\n**File Name:** `{file_name}`\n{tmp}"
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -137,7 +134,7 @@ async def cb_progress(current, total, cb, start, type_of_ps, file_name=None):
                 pass
         else:
             try:
-                await message.edit_message_text("{}\n{}".format(type_of_ps, tmp))
+                await message.edit_message_text(f"{type_of_ps}\n{tmp}")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
             except MessageNotModified:
@@ -157,9 +154,7 @@ def get_arg(message: Message):
     msg = message.text
     msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
     split = msg[1:].replace("\n", " \n").split(" ")
-    if " ".join(split[1:]).strip() == "":
-        return ""
-    return " ".join(split[1:])
+    return " ".join(split[1:]) if " ".join(split[1:]).strip() else ""
 
 
 def get_args(message: Message):
@@ -238,7 +233,6 @@ async def convert_to_image(message, client) -> [None, str]:
 
 def resize_image(image):
     im = Image.open(image)
-    maxsize = (512, 512)
     if (im.width and im.height) < 512:
         size1 = im.width
         size2 = im.height
@@ -255,6 +249,7 @@ def resize_image(image):
         sizenew = (size1new, size2new)
         im = im.resize(sizenew)
     else:
+        maxsize = (512, 512)
         im.thumbnail(maxsize)
     file_name = "Sticker.png"
     im.save(file_name, "PNG")
@@ -264,10 +259,10 @@ def resize_image(image):
 
 
 class Media_Info:
-    def data(media: str) -> dict:
+    def data(self) -> dict:
         "Get downloaded media's information"
         found = False
-        media_info = MediaInfo.parse(media)
+        media_info = MediaInfo.parse(self)
         for track in media_info.tracks:
             if track.track_type == "Video":
                 found = True
@@ -299,7 +294,7 @@ class Media_Info:
                     else None
                 )
 
-        dict_ = (
+        return (
             {
                 "media_type": type_,
                 "format": format_,
@@ -316,7 +311,6 @@ class Media_Info:
             if found
             else None
         )
-        return dict_
 
 
 async def resize_media(media: str, video: bool, fast_forward: bool) -> str:
@@ -335,14 +329,11 @@ async def resize_media(media: str, video: bool, fast_forward: bool) -> str:
             height, width = -1, 512
 
         resized_video = f"{media}.webm"
-        if fast_forward:
-            if s > 3:
-                fract_ = 3 / s
-                ff_f = round(fract_, 2)
-                set_pts_ = ff_f - 0.01 if ff_f > fract_ else ff_f
-                cmd_f = f"-filter:v 'setpts={set_pts_}*PTS',scale={width}:{height}"
-            else:
-                cmd_f = f"-filter:v scale={width}:{height}"
+        if fast_forward and s > 3:
+            fract_ = 3 / s
+            ff_f = round(fract_, 2)
+            set_pts_ = ff_f - 0.01 if ff_f > fract_ else ff_f
+            cmd_f = f"-filter:v 'setpts={set_pts_}*PTS',scale={width}:{height}"
         else:
             cmd_f = f"-filter:v scale={width}:{height}"
         fps_ = float(info_["frame_rate"])

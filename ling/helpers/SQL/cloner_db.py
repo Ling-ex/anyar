@@ -17,7 +17,7 @@ class Cloner(BASE):
         self.bio = bio
 
     def __repr__(self):
-        return "<Cloner {}>".format(self.user_id)
+        return f"<Cloner {self.user_id}>"
 
 
 Cloner.__table__.create(checkfirst=True)

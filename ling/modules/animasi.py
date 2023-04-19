@@ -187,7 +187,7 @@ async def pijtau(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 1
-    animation_ttl = range(0, 14)
+    animation_ttl = range(14)
     await message.edit("brain")
     animation_chars = [
         "YOᑌᖇ ᗷᖇᗩIᑎ ➡️ 🧠\n\n🧠         <(^_^ <)🗑",
@@ -242,7 +242,7 @@ async def hajqag(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 3
-    animation_ttl = range(0, 18)
+    animation_ttl = range(18)
     await message.edit("Calling Pavel Durov (ceo of telegram)......")
     animation_chars = [
         "`Connecting To Telegram Headquarters...`",
@@ -274,7 +274,7 @@ async def gahah(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 0.7
-    animation_ttl = range(0, 12)
+    animation_ttl = range(12)
     await message.edit("ready to die dude.....")
     animation_chars = [
         "Ｆｉｉｉｉｉｒｅ",
@@ -300,7 +300,7 @@ async def gagahkah(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 0.8
-    animation_ttl = range(0, 5)
+    animation_ttl = range(5)
     await message.edit("wtf")
     animation_chars = [
         "What",
@@ -318,7 +318,7 @@ async def gagahkah(client: Client, message: Message):
 @Client.on_message(filters.command("ding", cmd) & filters.me)
 async def gkahgagw(client: Client, message: Message):
     animation_interval = 0.3
-    animation_ttl = range(0, 30)
+    animation_ttl = range(30)
     animation_chars = [
         "🔴⬛⬛⬜⬜\n⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜",
         "⬜⬜⬛⬜⬜\n⬜⬛⬜⬜⬜\n🔴⬜⬜⬜⬜",
@@ -345,7 +345,7 @@ async def okihakga(client: Client, message: Message):
     if message.forward_from:
         return
     animation_interval = 0.3
-    animation_ttl = range(0, 15)
+    animation_ttl = range(15)
     await message.edit("hypo....")
     animation_chars = [
         "⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜\n⬜⬜⬜⬜⬜⬜⬜",
@@ -396,9 +396,9 @@ async def timer_blankx(client: Client, message: Message):
     )
     j = 10
     k = j
-    for j in range(j):
+    for _ in range(k):
         await message.edit(txt + str(k))
-        k = k + 10
+        k += 10
         await asyncio.sleep(1)
     await asyncio.sleep(1)
     await message.edit(

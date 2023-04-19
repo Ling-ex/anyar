@@ -45,12 +45,14 @@ def checkpermit(
             SESSION.query(User).filter(User.user_id == userid).one_or_none().warning
             == -1
         )
-    else:
-        if SESSION.query(User).filter(User.user_id == userid).one_or_none():
-            return not (
-                SESSION.query(User).filter(User.user_id == userid).one_or_none().warning
-                == warns
-            )
+    if SESSION.query(User).filter(User.user_id == userid).one_or_none():
+        return (
+            SESSION.query(User)
+            .filter(User.user_id == userid)
+            .one_or_none()
+            .warning
+            != warns
+        )
 
 
 def blockuser(userid):  # blocks a user by changing it's warning to warns(max warns)
@@ -84,23 +86,14 @@ def addwarns(
 
 def allallowed():
     query = SESSION.query(User).filter(User.warning == -1)
-    alloweduser = []
-    for row in query:
-        alloweduser.append(row.user_id)
-    return alloweduser
+    return [row.user_id for row in query]
 
 
 def allblocked():
     query = SESSION.query(User).filter(User.warning == warns)
-    blockeduser = []
-    for row in query:
-        blockeduser.append(row.user_id)
-    return blockeduser
+    return [row.user_id for row in query]
 
 
 def inwarns():
     query = SESSION.query(User).filter(User.warning > -1 and User.warning < 3)
-    inwarns = []
-    for row in query:
-        inwarns.append(row.user_id)
-    return inwarns
+    return [row.user_id for row in query]

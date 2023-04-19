@@ -71,11 +71,7 @@ if (
     LOGGER(__name__).warning("STRING SESSION TIDAK DITEMUKAN, SHUTDOWN BOT!")
     sys.exit()
 
-if API_ID:
-   API_ID = API_ID
-else:
-   API_ID = "21836949"
-
+API_ID = API_ID if API_ID else "21836949"
 if API_HASH:
    API_HASH = API_HASH
 else:
@@ -86,11 +82,7 @@ if not BOT_TOKEN:
    LOGGER(__name__).error("WARNING: BOT TOKEN TIDAK DITEMUKAN, SHUTDOWN BOT")
    sys.exit
 
-if BOTLOG_CHATID:
-    BOTLOG_CHATID = BOTLOG_CHATID
-else:
-    BOTLOG_CHATID = "me"
-
+BOTLOG_CHATID = BOTLOG_CHATID if BOTLOG_CHATID else "me"
 LOOP = asyncio.get_event_loop()
 
 trl = Translator()
@@ -107,10 +99,7 @@ StartTime = time.time()
 
 START_TIME = datetime.now()
 
-TEMP_SETTINGS: Dict[Any, Any] = {}
-TEMP_SETTINGS["PM_COUNT"] = {}
-TEMP_SETTINGS["PM_LAST_MSG"] = {}
-
+TEMP_SETTINGS: Dict[Any, Any] = {"PM_COUNT": {}, "PM_LAST_MSG": {}}
 app = Client(
     name="app",
     api_id=API_ID,

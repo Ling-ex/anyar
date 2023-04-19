@@ -95,22 +95,7 @@ class Fs:
     @property
     def F(self):
         paytext = "FF"
-        pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
-            paytext * 8,
-            paytext * 8,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 6,
-            paytext * 6,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-        )
-
-        return pay
+        return f"{paytext * 8}\n{paytext * 8}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 6}\n{paytext * 6}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}"
 
     BIG_F = "██████╗\n" "██╔═══╝\n" "█████╗\n" "██╔══╝\n" "██║\n" "╚═╝"
 

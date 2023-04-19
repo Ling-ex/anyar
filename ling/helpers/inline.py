@@ -21,10 +21,7 @@ def paginate_help(page_number, loaded_modules, prefix):
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        InlineKeyboardButton(
-            text="{}".format(x),
-            callback_data=f"ub_modul_{x}",
-        )
+        InlineKeyboardButton(text=f"{x}", callback_data=f"ub_modul_{x}")
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
@@ -65,7 +62,7 @@ def cb_wrapper(func):
             except Exception:
                 print(format_exc())
                 await cb.answer(
-                    f"Oh No, SomeThing Isn't Right. Please Check Logs!",
+                    "Oh No, SomeThing Isn't Right. Please Check Logs!",
                     cache_time=0,
                     show_alert=True,
                 )
