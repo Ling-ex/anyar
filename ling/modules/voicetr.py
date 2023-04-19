@@ -66,7 +66,7 @@ async def voicelang(client: Client, message: Message):
         lang = temp
         return
     await edit_or_reply(
-        message, "**Bahasa untuk Voice Google diganti menjadi** `{}`".format(lang)
+        message, f"**Bahasa untuk Voice Google diganti menjadi** `{lang}`"
     )
 
 

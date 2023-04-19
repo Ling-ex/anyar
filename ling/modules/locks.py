@@ -62,9 +62,9 @@ async def tg_lock(
         if perm not in permissions:
             return await message.edit_text("Already locked.")
         permissions.remove(perm)
+    elif perm in permissions:
+        return await message.edit_text("Already Unlocked.")
     else:
-        if perm in permissions:
-            return await message.edit_text("Already Unlocked.")
         permissions.append(perm)
 
     permissions = {perm: True for perm in list(set(permissions))}
@@ -96,13 +96,7 @@ async def locks_func(client: Client, message: Message):
     permissions = await current_chat_permissions(client, chat_id)
 
     if parameter in data:
-        await tg_lock(
-            client,
-            message,
-            permissions,
-            data[parameter],
-            bool(state == "lock"),
-        )
+        await tg_lock(client, message, permissions, data[parameter], state == "lock")
     elif parameter == "all" and state == "lock":
         await client.set_chat_permissions(chat_id, ChatPermissions())
         await message.edit_text(f"Locked Everything in {message.chat.title}")
@@ -131,10 +125,7 @@ async def locktypes(client: Client, message: Message):
     if not permissions:
         return await message.edit("No Permissions.")
 
-    perms = ""
-    for i in permissions:
-        perms += f" • __**{i}**__\n"
-
+    perms = "".join(f" • __**{i}**__\n" for i in permissions)
     await message.edit_text(perms)
 
 

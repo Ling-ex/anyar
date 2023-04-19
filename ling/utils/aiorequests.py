@@ -69,6 +69,4 @@ async def __aiohttpRequests(
             return await resp.json(content_type=None)
         if re_content:
             return await resp.read()
-        if real:
-            return resp
-        return await resp.text()
+        return resp if real else await resp.text()

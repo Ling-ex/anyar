@@ -67,9 +67,9 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("✔️").info(f"Git Client Found")
+        LOGGER("✔️").info("Git Client Found")
     except GitCommandError:
-        LOGGER("✔️").info(f"Invalid Git Command")
+        LOGGER("✔️").info("Invalid Git Command")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -103,17 +103,16 @@ def is_heroku():
 
 def heroku():
     global HAPP
-    if is_heroku:
-        if HEROKU_API_KEY and HEROKU_APP_NAME:
-            try:
-                Heroku = heroku3.from_key(HEROKU_API_KEY)
-                HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("✔️").info(f"HyperRobot ✔️")
-            except BaseException as e:
-                LOGGER("Heroku").error(e)
-                LOGGER("Heroku").info(
-                    f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
-                )
+    if is_heroku and HEROKU_API_KEY and HEROKU_APP_NAME:
+        try:
+            Heroku = heroku3.from_key(HEROKU_API_KEY)
+            HAPP = Heroku.app(HEROKU_APP_NAME)
+            LOGGER("✔️").info("HyperRobot ✔️")
+        except BaseException as e:
+            LOGGER("Heroku").error(e)
+            LOGGER("Heroku").info(
+                "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
+            )
                 
 async def in_heroku():
     return "heroku" in socket.getfqdn()

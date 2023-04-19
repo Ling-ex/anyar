@@ -86,9 +86,8 @@ async def chatinfo_handler(client: Client, message: Message):
                 return await message.edit(
                     f"Gunakan perintah ini di dalam grup atau gunakan `{cmd}chatinfo [group username atau id]`"
                 )
-            else:
-                chatid = message.chat.id
-                chat = await client.get_chat(chatid)
+            chatid = message.chat.id
+            chat = await client.get_chat(chatid)
         h = f"{chat.type}"
         if h.startswith("ChatType"):
             y = h.replace("ChatType.", "")

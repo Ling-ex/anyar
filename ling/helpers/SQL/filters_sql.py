@@ -19,7 +19,7 @@ class Filters(BASE):
         self.f_mesg_id = f_mesg_id
 
     def __eq__(self, other):
-        return bool(
+        return (
             isinstance(other, Filters)
             and self.chat_id == other.chat_id
             and self.keyword == other.keyword
@@ -44,13 +44,7 @@ def get_filters(chat_id):
 
 
 def add_filter(chat_id, keyword, reply, f_mesg_id):
-    to_check = get_filter(chat_id, keyword)
-    if not to_check:
-        adder = Filters(str(chat_id), keyword, reply, f_mesg_id)
-        SESSION.add(adder)
-        SESSION.commit()
-        return True
-    else:
+    if to_check := get_filter(chat_id, keyword):
         rem = SESSION.query(Filters).get((str(chat_id), keyword))
         SESSION.delete(rem)
         SESSION.commit()
@@ -58,13 +52,17 @@ def add_filter(chat_id, keyword, reply, f_mesg_id):
         SESSION.add(adder)
         SESSION.commit()
         return False
+    else:
+        adder = Filters(str(chat_id), keyword, reply, f_mesg_id)
+        SESSION.add(adder)
+        SESSION.commit()
+        return True
 
 
 def remove_filter(chat_id, keyword):
-    to_check = get_filter(chat_id, keyword)
-    if not to_check:
-        return False
-    else:
+    if to_check := get_filter(chat_id, keyword):
         SESSION.delete(to_check)
         SESSION.commit()
         return True
+    else:
+        return False

@@ -12,10 +12,7 @@ from pyrogram.types import Message
 
 def get_user(message: Message, text: str) -> [int, str, None]:
     """Get User From Message"""
-    if text is None:
-        asplit = None
-    else:
-        asplit = text.split(" ", 1)
+    asplit = None if text is None else text.split(" ", 1)
     user_s = None
     reason_ = None
     if message.reply_to_message:
@@ -43,12 +40,11 @@ def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
         return None
-    if " " in text_to_return:
-        try:
-            return message.text.split(None, 1)[1]
-        except IndexError:
-            return None
-    else:
+    if " " not in text_to_return:
+        return None
+    try:
+        return message.text.split(None, 1)[1]
+    except IndexError:
         return None
 
 

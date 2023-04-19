@@ -29,17 +29,12 @@ async def afk(client: Client, message: Message):
     if len(message.text.split()) >= 2:
         set_afk(True, message.text.split(None, 1)[1])
         await message.edit(
-            "🤖 {} <b>Telah AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
-                mention_markdown(message.from_user.id, message.from_user.first_name),
-                message.text.split(None, 1)[1],
-            )
+            f"🤖 {mention_markdown(message.from_user.id, message.from_user.first_name)} <b>Telah AFK!</b>\n└ <b>Karena:</b> <code>{message.text.split(None, 1)[1]}</code>"
         )
     else:
         set_afk(True, "")
         await message.edit(
-            "{} <b>Telah AFK</b>".format(
-                mention_markdown(message.from_user.id, message.from_user.first_name)
-            )
+            f"{mention_markdown(message.from_user.id, message.from_user.first_name)} <b>Telah AFK</b>"
         )
     await message.stop_propagation()
 
@@ -56,15 +51,14 @@ async def afk_mentioned(client: Client, message: Message):
         else:
             cid = str(message.chat.id)
 
-        if cid in list(AFK_RESTIRECT):
-            if int(AFK_RESTIRECT[cid]) >= int(time.time()):
-                return
+        if cid in list(AFK_RESTIRECT) and int(AFK_RESTIRECT[cid]) >= int(
+            time.time()
+        ):
+            return
         AFK_RESTIRECT[cid] = int(time.time()) + DELAY_TIME
         if get["reason"]:
             await message.reply(
-                "🤖 {} <b>Sedang AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
-                    client.me.mention, get["reason"]
-                )
+                f'🤖 {client.me.mention} <b>Sedang AFK!</b>\n└ <b>Karena:</b> <code>{get["reason"]}</code>'
             )
         else:
             await message.reply(
@@ -73,10 +67,7 @@ async def afk_mentioned(client: Client, message: Message):
 
         _, message_type = get_message_type(message)
         if message_type == Types.TEXT:
-            if message.text:
-                text = message.text
-            else:
-                text = message.caption
+            text = message.text if message.text else message.caption
         else:
             text = message_type.name
 
@@ -93,11 +84,7 @@ async def afk_mentioned(client: Client, message: Message):
         try:
             await client.send_message(
                 BOTLOG_CHATID,
-                "<b>#MENTION\n • Dari :</b> {}\n • <b>Grup :</b> <code>{}</code>\n • <b>Pesan :</b> <code>{}</code>".format(
-                    message.from_user.mention,
-                    message.chat.title,
-                    text[:3500],
-                ),
+                f"<b>#MENTION\n • Dari :</b> {message.from_user.mention}\n • <b>Grup :</b> <code>{message.chat.title}</code>\n • <b>Pesan :</b> <code>{text[:3500]}</code>",
             )
         except BaseException:
             pass
@@ -113,18 +100,12 @@ async def no_longer_afk(client: Client, message: Message):
             await client.send_message(BOTLOG_CHATID, "Anda sudah tidak lagi AFK!")
         except BaseException:
             pass
-        text = "<b>Total {} Mention Saat Sedang AFK<b>\n".format(len(MENTIONED))
+        text = f"<b>Total {len(MENTIONED)} Mention Saat Sedang AFK<b>\n"
         for x in MENTIONED:
             msg_text = x["text"]
             if len(msg_text) >= 11:
-                msg_text = "{}...".format(x["text"])
-            text += "- [{}](https://t.me/c/{}/{}) ({}): {}\n".format(
-                escape_markdown(x["user"]),
-                x["chat_id"],
-                x["message_id"],
-                x["chat"],
-                msg_text,
-            )
+                msg_text = f'{x["text"]}...'
+            text += f'- [{escape_markdown(x["user"])}](https://t.me/c/{x["chat_id"]}/{x["message_id"]}) ({x["chat"]}): {msg_text}\n'
         try:
             await client.send_message(BOTLOG_CHATID, text)
         except BaseException:

@@ -93,7 +93,7 @@ async def ppcp(client, message):
             ]
         ),
         False,
-        caption=f"📌 PP Couple nya Nih Kak",
+        caption="📌 PP Couple nya Nih Kak",
     )
 
     await yanto.delete()
@@ -114,7 +114,7 @@ async def ppanime(client, message):
             ]
         ),
         False,
-        caption=f"📌 PP Anime nya Nih Kak",
+        caption="📌 PP Anime nya Nih Kak",
     )
 
     await yanto.delete()

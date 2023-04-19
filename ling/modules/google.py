@@ -43,15 +43,15 @@ def googlesearch(query):
 async def gs(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing...`")
     msg_txt = message.text
-    returnmsg = ""
     query = None
     if " " in msg_txt:
-        query = msg_txt[msg_txt.index(" ") + 1 : len(msg_txt)]
+        query = msg_txt[msg_txt.index(" ") + 1:]
     else:
         await Man.edit("Give a query to search")
         return
     results = googlesearch(query)
-    for i in range(1, 10, 1):
+    returnmsg = ""
+    for i in range(1, 10):
         presentquery = results[i]
         presenttitle = presentquery["title"]
         presentmeta = presentquery["metadata"]
@@ -60,14 +60,8 @@ async def gs(client: Client, message: Message):
         print(presenttitle)
         print(presentmeta)
         print(presenturl)
-        if not presentmeta:
-            presentmeta = ""
-        else:
-            presentmeta = presentmeta[0]
-        returnmsg = (
-            returnmsg
-            + f"[{str(presenttitle)}]({str(presenturl)})\n{str(presentmeta)}\n\n"
-        )
+        presentmeta = presentmeta[0] if presentmeta else ""
+        returnmsg = f"{returnmsg}[{str(presenttitle)}]({str(presenturl)})\n{str(presentmeta)}\n\n"
     await Man.edit(returnmsg)
 
 

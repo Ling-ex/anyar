@@ -87,10 +87,7 @@ def get_note_type(msg):
         return None, None, None, None
     data_type = None
     content = None
-    if msg.text:
-        raw_text = msg.text.markdown
-    else:
-        raw_text = msg.caption.markdown
+    raw_text = msg.text.markdown if msg.text else msg.caption.markdown
     args = raw_text.split(None, 2)  # use python's maxsplit to separate cmd and args
     note_name = args[1]
 

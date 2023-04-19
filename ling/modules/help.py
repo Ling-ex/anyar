@@ -64,7 +64,7 @@ async def module_help(client: Client, message: Message):
     if help_arg:
         if help_arg in CMD_HELP:
             commands: dict = CMD_HELP[help_arg]
-            this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
+            this_command = f"──「 **Help For {help_arg.upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `{cdm}{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @storyQi"
@@ -118,11 +118,7 @@ async def module_helper(client: Client, message: Message):
 
 
 def add_command_help(module_name, commands):
-    if module_name in CMD_HELP.keys():
-        command_dict = CMD_HELP[module_name]
-    else:
-        command_dict = {}
-
+    command_dict = CMD_HELP[module_name] if module_name in CMD_HELP.keys() else {}
     for x in commands:
         for y in x:
             if y is not x:

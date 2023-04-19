@@ -38,22 +38,13 @@ async def fakeactions_handler(client: Client, message: Message):
     cmd = message.command[0]
     try:
         sec = int(message.command[1])
-        if sec > 60:
-            sec = 60
+        sec = min(sec, 60)
     except:
         sec = None
     await message.delete()
     action = commands[cmd]
     try:
-        if action != "screenshot":
-            if sec and action != enums.ChatAction.CANCEL:
-                await client.send_chat_action(chat_id=message.chat.id, action=action)
-                await sleep(sec)
-            else:
-                return await client.send_chat_action(
-                    chat_id=message.chat.id, action=action
-                )
-        else:
+        if action == "screenshot":
             for _ in range(sec if sec else 1):
                 await client.send(
                     functions.messages.SendScreenshotNotification(
@@ -63,6 +54,13 @@ async def fakeactions_handler(client: Client, message: Message):
                     )
                 )
                 await sleep(0.1)
+        elif sec and action != enums.ChatAction.CANCEL:
+            await client.send_chat_action(chat_id=message.chat.id, action=action)
+            await sleep(sec)
+        else:
+            return await client.send_chat_action(
+                chat_id=message.chat.id, action=action
+            )
     except Exception as e:
         return await client.send_message(
             message.chat.id,

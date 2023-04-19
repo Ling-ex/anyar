@@ -41,7 +41,7 @@ async def sg(client: Client, message: Message):
         if not stalk:
             await message.edit("<code>Orang Ini Belum Pernah Mengganti Namanya</code>")
             return
-        elif stalk:
+        else:
             await message.edit(stalk.text)
             await client.leave_chat(sg)
 

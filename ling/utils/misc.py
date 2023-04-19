@@ -16,10 +16,10 @@ def _netcat(host, port, content):
     s.sendall(content.encode())
     s.shutdown(socket.SHUT_WR)
     while True:
-        data = s.recv(4096).decode("utf-8").strip("\n\x00")
-        if not data:
+        if data := s.recv(4096).decode("utf-8").strip("\n\x00"):
+            return data
+        else:
             break
-        return data
     s.close()
 
 def restart():
@@ -36,10 +36,9 @@ async def user_input(input):
 
 async def paste_queue(content):
     loop = get_running_loop()
-    link = await loop.run_in_executor(
+    return await loop.run_in_executor(
         None, partial(_netcat, "ezup.dev", 9999, content)
     )
-    return link
 
 async def list_admins(client: Client, chat_id: int):
     global admins_in_chat
@@ -80,9 +79,7 @@ async def extract_userid(message, text: str):
     entity = entities[1]
     if entity.type == "mention":
         return (await app.get_users(text)).id
-    if entity.type == "text_mention":
-        return entity.user.id
-    return None
+    return entity.user.id if entity.type == "text_mention" else None
 
 
 async def extract_user_and_reason(message, sender_chat=False):
@@ -92,22 +89,18 @@ async def extract_user_and_reason(message, sender_chat=False):
     reason = None
     if message.reply_to_message:
         reply = message.reply_to_message
-        if not reply.from_user:
-            if (
+        if reply.from_user:
+            id_ = reply.from_user.id
+
+        elif (
                 reply.sender_chat
                 and reply.sender_chat != message.chat.id
                 and sender_chat
             ):
-                id_ = reply.sender_chat.id
-            else:
-                return None, None
+            id_ = reply.sender_chat.id
         else:
-            id_ = reply.from_user.id
-
-        if len(args) < 2:
-            reason = None
-        else:
-            reason = text.split(None, 1)[1]
+            return None, None
+        reason = None if len(args) < 2 else text.split(None, 1)[1]
         return id_, reason
 
     if len(args) == 2:

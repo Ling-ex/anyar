@@ -87,11 +87,10 @@ async def varget_(client: Client, message: Message):
         path = dotenv.find_dotenv("config.env")
         if not path:
             return await Man.edit(".env file not found.")
-        output = dotenv.get_key(path, check_var)
-        if not output:
-            await Man.edit(f"Tidak dapat menemukan var {check_var}")
-        else:
+        if output := dotenv.get_key(path, check_var):
             return await Man.edit(f"<b>{check_var}:</b> <code>{str(output)}</code>")
+        else:
+            await Man.edit(f"Tidak dapat menemukan var {check_var}")
 
 
 @Client.on_message(filters.command("delvar", CMD_HANDLER) & filters.me)
@@ -106,11 +105,10 @@ async def vardel_(client: Client, message: Message):
                 "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
             )
         heroku_config = HAPP.config()
-        if check_var in heroku_config:
-            await message.edit(f"Berhasil Menghapus var {check_var}")
-            del heroku_config[check_var]
-        else:
+        if check_var not in heroku_config:
             return await message.edit(f"Tidak dapat menemukan var {check_var}")
+        await message.edit(f"Berhasil Menghapus var {check_var}")
+        del heroku_config[check_var]
     else:
         path = dotenv.find_dotenv("config.env")
         if not path:
@@ -125,14 +123,12 @@ async def vardel_(client: Client, message: Message):
 
 @Client.on_message(filters.command(["usage", "dyno"], CMD_HANDLER) & filters.me)
 async def usage_heroku(client: Client, message: Message):
-    ### Credits CatUserbot
-    if await in_heroku():
-        if HAPP is None:
-            return await message.edit(
-                "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
-            )
-    else:
+    if not await in_heroku():
         return await edit_or_reply(message, "Only for Heroku Apps")
+    if HAPP is None:
+        return await message.edit(
+            "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku"
+        )
     dyno = await edit_or_reply(message, "`Checking Heroku Usage. Please Wait...`")
     Heroku = heroku3.from_key(HEROKU_API_KEY)
     account_id = Heroku.account().id
@@ -146,8 +142,8 @@ async def usage_heroku(client: Client, message: Message):
         "Authorization": f"Bearer {HEROKU_API_KEY}",
         "Accept": "application/vnd.heroku+json; version=3.account-quotas",
     }
-    path = "/accounts/" + account_id + "/actions/get-quota"
-    r = requests.get("https://api.heroku.com" + path, headers=headers)
+    path = f"/accounts/{account_id}/actions/get-quota"
+    r = requests.get(f"https://api.heroku.com{path}", headers=headers)
     if r.status_code != 200:
         return await dyno.edit("Unable to fetch.")
     result = r.json()

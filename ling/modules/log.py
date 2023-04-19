@@ -86,18 +86,18 @@ async def log_tagged_messages(client: Client, message: Message):
 
 @Client.on_message(filters.command("log", cmd) & filters.me)
 async def set_log_p_m(client: Client, message: Message):
-    if BOTLOG_CHATID != -100:
-        if no_log_pms_sql.is_approved(message.chat.id):
-            no_log_pms_sql.disapprove(message.chat.id)
-            await message.edit("**LOG Chat dari Grup ini Berhasil Diaktifkan**")
+    if BOTLOG_CHATID != -100 and no_log_pms_sql.is_approved(message.chat.id):
+        no_log_pms_sql.disapprove(message.chat.id)
+        await message.edit("**LOG Chat dari Grup ini Berhasil Diaktifkan**")
 
 
 @Client.on_message(filters.command("nolog", cmd) & filters.me)
 async def set_no_log_p_m(client: Client, message: Message):
-    if BOTLOG_CHATID != -100:
-        if not no_log_pms_sql.is_approved(message.chat.id):
-            no_log_pms_sql.approve(message.chat.id)
-            await message.edit("**LOG Chat dari Grup ini Berhasil Dimatikan**")
+    if BOTLOG_CHATID != -100 and not no_log_pms_sql.is_approved(
+        message.chat.id
+    ):
+        no_log_pms_sql.approve(message.chat.id)
+        await message.edit("**LOG Chat dari Grup ini Berhasil Dimatikan**")
 
 
 @Client.on_message(filters.command(["pmlog", "pmlogger"], cmd) & filters.me)
@@ -111,10 +111,7 @@ async def set_pmlog(client: Client, message: Message):
         h_type = False
     elif input_str == "on":
         h_type = True
-    if gvarstatus("PMLOG") and gvarstatus("PMLOG") == "false":
-        PMLOG = False
-    else:
-        PMLOG = True
+    PMLOG = not gvarstatus("PMLOG") or gvarstatus("PMLOG") != "false"
     if PMLOG:
         if h_type:
             await edit_or_reply(message, "**PM LOG Sudah Diaktifkan**")
@@ -139,10 +136,7 @@ async def set_gruplog(client: Client, message: Message):
         h_type = False
     elif input_str == "on":
         h_type = True
-    if gvarstatus("GRUPLOG") and gvarstatus("GRUPLOG") == "false":
-        GRUPLOG = False
-    else:
-        GRUPLOG = True
+    GRUPLOG = not gvarstatus("GRUPLOG") or gvarstatus("GRUPLOG") != "false"
     if GRUPLOG:
         if h_type:
             await edit_or_reply(message, "**Group Log Sudah Diaktifkan**")

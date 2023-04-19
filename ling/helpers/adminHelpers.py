@@ -20,18 +20,12 @@ async def CheckAdmin(client: Client, message: Message):
 
     if SELF.status not in ranks:
         await message.edit("__I'm not Admin!__")
-        await asyncio.sleep(2)
-        await message.delete()
-
+    elif SELF.status is not admin or SELF.can_restrict_members:
+        return True
     else:
-        if SELF.status is not admin:
-            return True
-        elif SELF.can_restrict_members:
-            return True
-        else:
-            await message.edit("__No Permissions to restrict Members__")
-            await asyncio.sleep(2)
-            await message.delete()
+        await message.edit("__No Permissions to restrict Members__")
+    await asyncio.sleep(2)
+    await message.delete()
 
 
 async def CheckReplyAdmin(message: Message):
@@ -51,11 +45,10 @@ async def CheckReplyAdmin(message: Message):
 
 
 async def Timer(message: Message):
-    if len(message.command) > 1:
-        secs = IntervalHelper(message.command[1])
-        return int(str(time()).split(".")[0] + secs.to_secs()[0])
-    else:
+    if len(message.command) <= 1:
         return 0
+    secs = IntervalHelper(message.command[1])
+    return int(str(time()).split(".")[0] + secs.to_secs()[0])
 
 
 async def TimerString(message: Message):
