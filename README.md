@@ -23,7 +23,7 @@
 - Langkah ini harus dilakukan karena tautan tambang melanggar penggunaan tenaga penjualan yang dapat diterima.
 - Anda cukup mengubah nama github di tautan penerapan dan selesai, repo dapat diterapkan di heroku.
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/Ling-ex/anyar"> <img 
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/JIYOXCRY/HYPER-UBOT"> <img 
 src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=flat&logo=heroku" width="210" height="34.45" /></a></p>
 
 
